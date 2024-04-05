@@ -36,11 +36,15 @@ a:visited {
   display: block;
   padding-top: 120px;
   padding-bottom: 120px;
-  outline: 3px solid teal;
 }
 .section.no-padding {
   padding-top: 0;
   padding-bottom: 0;
+}
+
+.no-margin {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .container {
@@ -49,8 +53,6 @@ a:visited {
   margin-left: auto;
   padding-left: 20px;
   padding-right: 20px;
-  background-color: gray;
-  outline: 3px solid yellowgreen;
 }
 
 /* Site nav */
@@ -88,7 +90,6 @@ a:visited {
   display: block;
   padding-top: 21px;
   padding-bottom: 21px;
-  background-color: orange;
 }
 
 .auth-nav {
@@ -167,7 +168,6 @@ a:visited {
 }
 
 .work-list > .item:nth-child(even) .work-img {
-  border: 5px solid red;
   margin-left: 84px;
   margin-right: 80px;
 }
@@ -244,7 +244,7 @@ a:visited {
 
 .section-description {
   margin-top: 0;
-  margin-bottom: 80px;
+  /* margin-bottom: 80px; */
   margin-left: 144px;
   margin-right: 144px;
   text-align: center;
@@ -265,6 +265,8 @@ a:visited {
   gap: 100px;
 }
 
+/* JOIN */
+
 .join {
   display: flex;
   padding-top: 120px;
@@ -272,6 +274,35 @@ a:visited {
   margin-bottom: 0;
 }
 
+.join p {
+  margin-bottom: 0;
+  margin-left: 80px;
+  text-align: left;
+  margin-right: auto;
+}
+
 .join-btn {
-  /* display: flex; */
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-right: 140px;
+}
+
+/* FOOTER */
+
+.footer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* .footer > .list {
+  display: flex;
+} */
+.footer-links-wrapper {
+  display: flex;
+}
+
+.footer-links {
+  display: flex;
+  margin-right: auto;
 }
