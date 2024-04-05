@@ -299,10 +299,34 @@ a:visited {
   display: flex;
 } */
 .footer-links-wrapper {
+  margin-left: 80px;
+  margin-right: 80px;
   display: flex;
+  padding-top: 120px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid black;
+}
+
+.footer-links-wrapper .site-logo {
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .footer-links {
   display: flex;
-  margin-right: auto;
+  /* margin-right: auto; */
+  gap: 100px;
+}
+
+.social-media {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding-top: 80px;
+}
+
+.about-us {
+  text-align: center;
+  padding-bottom: 130px;
+  padding-top: 40px;
 }
