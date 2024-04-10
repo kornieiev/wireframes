@@ -1,0 +1,58 @@
+body {
+  background-color: tan;
+}
+
+/* Карточка товара с иконками относительно карточки */
+
+.product {
+  width: 370px;
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  background-color: #ffffff;
+  position: relative;
+}
+
+.product-meta {
+  padding: 15px;
+}
+
+.product-name {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.product-actions {
+  outline: 3px solid orange;
+  display: flex;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.product-actions .icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* Карточка товара с иконками относительно изображения и оверлей */
+
+.img-wrap {
+  position: relative;
+}
+
+.product-actions2 {
+  outline: 3px solid orange;
+  display: flex;
+  position: absolute;
+  bottom: 15px;
+  right: 10px;
+}
+
+.product-actions2 .icon2 {
+  width: 32px;
+  height: 32px;
+}
