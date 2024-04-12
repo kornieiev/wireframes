@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>modalWindow</title>
+    <link rel="stylesheet" href="./css/modalWindow.css" />
+  </head>
+  <body>
+    <a href="../attached/examplesList.html">back to main</a>
+    <h1>Модальное окно</h1>
+    <hr />
+    <a href="https://youtu.be/ogNQOunExwE?t=4209">Репета</a>
+    <hr />
+    <button data-open-modal class="btn">Open Modal</button>
+    <hr />
+
+    <!-- модальное окно обычно размещается внизу кода -->
+    <div class="backdrop is-hidden" data-backdrop>
+      <div class="modal">
+        <h1>Lorem, ipsum dolor.</h1>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, eos
+          perspiciatis? Pariatur repudiandae, nostrum ipsam quo neque, at cumque
+          dicta ipsum, aliquid veritatis mollitia. Voluptas necessitatibus,
+          excepturi praesentium accusantium corporis voluptates, accusamus ea
+          quae fugit fuga aliquid consequuntur dolore saepe alias velit quod?
+          Possimus dolorum tenetur obcaecati explicabo eligendi labore.
+        </p>
+        <button data-close-modal class="btn">Close</button>
+      </div>
+    </div>
+
+    <script>
+      const refs = {
+        openModalBtn: document.querySelector("[data-open-modal]"),
+        closeModalBtn: document.querySelector("[data-close-modal]"),
+        backdrop: document.querySelector("[data-backdrop]")
+      };
+
+      refs.openModalBtn.addEventListener("click", toggleModal);
+      refs.closeModalBtn.addEventListener("click", toggleModal);
+
+      refs.backdrop.addEventListener("click", logBackdropClick);
+
+      function toggleModal() {
+        refs.backdrop.classList.toggle("is-hidden");
+      }
+
+      function logBackdropClick() {
+        console.log("Click on backdrop");
+      }
+    </script>
+  </body>
+</html>

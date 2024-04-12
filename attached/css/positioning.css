@@ -1,0 +1,108 @@
+body {
+  background-color: tan;
+  padding-top: 80px;
+}
+.accent {
+  color: green;
+}
+
+/* Карточка товара с иконками относительно карточки */
+
+.product {
+  width: 370px;
+  box-shadow: 8px 8px 24px 0px rgba(66, 68, 90, 1);
+  background-color: #ffffff;
+  position: relative;
+}
+
+.product-meta {
+  padding: 15px;
+}
+
+.product-name {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.product-price {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.product-actions {
+  outline: 3px solid orange;
+  display: flex;
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}
+
+.product-actions .icon {
+  width: 32px;
+  height: 32px;
+}
+
+/* Карточка товара с иконками относительно изображения и оверлей */
+
+.img-wrap {
+  position: relative;
+}
+
+.product-actions2 {
+  outline: 3px solid orange;
+  display: flex;
+  position: absolute;
+  /* bottom: 15px; */
+  /* right: 10px; */
+
+  /* Для отцентровки через % */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: 500ms opacity linear;
+
+  /* Прозрачность */
+  opacity: 0;
+}
+
+.product:hover .product-actions2 {
+  opacity: 1;
+}
+
+.product-actions2 .icon2 {
+  width: 32px;
+  height: 32px;
+}
+
+/* OVERLAY */
+
+.img-wrap::before {
+  display: inline-block;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background-color: rgba(0, 255, 0, 0.5);
+
+  opacity: 0;
+  transition: 500ms opacity linear;
+}
+
+.img-wrap:hover::before {
+  opacity: 1;
+}
+
+/* Фиксированный хедер */
+
+.page-header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  min-height: 80px;
+  /* на body нужно задать padding 80 px, что бы под хедер ничего не залазило */
+  background-color: rgba(234, 255, 0, 0.5);
+  outline: 3px dashed red;
+}
