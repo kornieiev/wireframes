@@ -1,0 +1,143 @@
+body {
+  background-color: tan;
+  font-size: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn {
+  margin: 30px;
+  padding: 15px 30px;
+  border-radius: 6px;
+  border: none;
+  background-color: teal;
+  font: inherit;
+  cursor: pointer;
+  color: floralwhite;
+
+  /* transition-property: background-color, color;
+  transition-duration: 500ms;
+  transition-timing-function: linear;
+  transition-delay: 250ms; */
+
+  transition: background-color 500ms linear 250ms, color 500ms linear 250ms;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: orange;
+  color: black;
+}
+
+/* Анимированная кнопка c иконкой */
+
+.btn2 {
+  position: relative;
+
+  overflow: hidden;
+
+  display: inline-flex;
+  align-items: center;
+
+  margin: 30px;
+  padding: 15px 30px;
+  border-radius: 6px;
+  border: none;
+  background-color: thistle;
+  font: inherit;
+  cursor: pointer;
+  color: floralwhite;
+
+  transition: background-color 500ms linear, color 500ms linear;
+}
+
+.btn2::before {
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  margin-right: 20px;
+
+  /* background-color: greenyellow; */
+  background-image: url(../../images/accelerate.svg);
+  background-size: contain;
+
+  transition: transform 500ms linear, background-color 5000ms linear;
+}
+
+.btn2:hover::before,
+.btn2:focus::before {
+  transform: translateY(-60px);
+}
+
+.btn2::after {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+  content: "";
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+
+  transform: translateY(100%);
+
+  /* background-color: yellow; */
+  background-image: url(../../images/conversation.svg);
+  background-size: contain;
+
+  transition: transform 500ms linear;
+}
+
+.btn2:hover::after,
+.btn2:focus::after {
+  transform: translateY(-50%);
+}
+
+.btn2:hover,
+.btn2:focus {
+  background-color: orange;
+  color: black;
+}
+
+/* Пункт меню с подчеркиванием */
+
+.menu {
+  display: flex;
+  gap: 20px;
+
+  list-style: none;
+}
+
+.menu-item {
+  position: relative;
+
+  outline: 1px solid black;
+  padding: 15px 30px;
+}
+
+.menu-link {
+  text-decoration: none;
+}
+
+.menu-link::after {
+  position: absolute;
+  display: block;
+  left: 0;
+  bottom: 0;
+  content: "";
+  width: 100%;
+  /* width: 0%; */
+  height: 5px;
+  background-color: red;
+  border-radius: 5px;
+
+  opacity: 0;
+  /* transform: scaleX(0); */
+
+  transition: opacity 250ms linear, width 250ms linear, transform 250ms linear;
+}
+
+.menu-link:hover::after {
+  opacity: 1;
+  /* width: 100%; */
+  transform: scaleX(1);
+}
