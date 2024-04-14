@@ -93,16 +93,3 @@ body {
 .img-wrap:hover::before {
   opacity: 1;
 }
-
-/* Фиксированный хедер */
-
-.page-header {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  min-height: 80px;
-  /* на body нужно задать padding 80 px, что бы под хедер ничего не залазило */
-  background-color: rgba(234, 255, 0, 0.5);
-  outline: 3px dashed red;
-}
