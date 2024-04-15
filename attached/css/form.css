@@ -1,0 +1,98 @@
+body {
+  background-color: tan;
+}
+
+.js-speaker-form {
+  /* display: flex; */
+  flex-direction: column;
+}
+
+.form {
+  width: 400px;
+  outline: 2px dashed darkred;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-field {
+  outline: 1px dotted brown;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-field input {
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: 0;
+  background-color: wheat;
+  font-size: 18px;
+  color: red;
+}
+
+.form-field input::placeholder {
+  color: green;
+  text-align: right;
+}
+
+.group-title {
+  margin: 30px 0 0;
+}
+
+/* СТИЛИЗАЦИЯ ИНПУТОВ */
+
+.topic-options,
+.experience-options {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.topic-options li {
+  display: flex;
+  align-items: center;
+}
+
+.topic-options input[type="checkbox"] {
+  width: 30px;
+  height: 30px;
+}
+.topic-options label {
+  font-size: 20px;
+  margin-left: 12px;
+}
+
+/* СТИЛИЗАЦИЯ РАДИОКНОПОК */
+
+.experience-options li {
+  display: flex;
+  align-items: center;
+}
+.experience-options input[type="radio"] {
+  width: 30px;
+  height: 30px;
+}
+.experience-options label {
+  font-size: 20px;
+  margin-left: 12px;
+}
+
+/* СТИЛИЗАЦИЯ date */
+
+.form .date {
+  background-color: yellow;
+  border: 4px solid blue;
+  padding: 20px;
+}
+
+/* СТИЛИЗАЦИЯ textarea */
+
+.comment {
+  background-color: teal;
+  font-size: 26px;
+  padding: 15px;
+  border: 5px dashed gold;
+  border-radius: 50px;
+}

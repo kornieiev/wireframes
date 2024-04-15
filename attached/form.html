@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Форма</title>
+    <link rel="stylesheet" href="./css/form.css" />
+  </head>
+  <body>
+    <a href="../attached/examplesList.html">back to main</a>
+    <h1>Форма</h1>
+    <hr />
+    <a href="https://youtu.be/whTI11fDw1Y?t=114">Репета</a>
+    <hr />
+    <form class="js-speaker-form1">
+      <label
+        >User name:
+        <input type="text" name="user-name" value="Lola" />
+      </label>
+
+      <label
+        >User phone:
+        <input type="tel" name="user-tel" />
+      </label>
+      <label
+        >User email:
+        <input type="email" name="email" />
+      </label>
+    </form>
+    <br />
+    <hr />
+
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <h4>
+      "User name" не вложен в label!!!!! Вместо этого в label вложен атрибут
+      for="name" а в input атрибут id="name" для их связки между собой
+    </h4>
+    <h4>
+      В вариантах сложного оформления input не вкладывается в label, а стоит
+      рядом
+    </h4>
+
+    <form class="form js-speaker-form" autocomplete="off">
+      <div class="form-field">
+        <label for="name">User name:</label>
+        <input
+          type="text"
+          name="user-name"
+          id="name"
+          autofocus
+          autocomplete="on"
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="phone">User phone:</label>
+        <input type="tel" name="user-tel" id="phone" value="322223" />
+      </div>
+
+      <div class="form-field">
+        <label for="email">User email:</label>
+        <input type="email" name="email" id="email" placeholder="my@mail.com" />
+      </div>
+
+      <div role="group" class="group">
+        <h2 class="group-title">Тема доклада</h2>
+        <ul class="topic-options">
+          <li>
+            <input
+              type="checkbox"
+              name="group"
+              id="html"
+              value="html"
+              checked
+            />
+            <label for="html">HTML</label>
+          </li>
+          <li>
+            <input type="checkbox" name="group" id="css" value="css" checked />
+            <label for="css">CSS</label>
+          </li>
+          <li>
+            <input type="checkbox" name="group" id="js" value="js" />
+            <label for="js">JS</label>
+          </li>
+        </ul>
+      </div>
+
+      <div role="group" class="group">
+        <h2 class="group-title">Выберите ваш уровень</h2>
+
+        <ul class="experience-options">
+          <li>
+            <input
+              type="radio"
+              name="expirience"
+              id="junior"
+              value="junior"
+              checked
+            />
+            <label for="junior">Junior</label>
+          </li>
+          <li>
+            <input type="radio" name="expirience" id="middle" value="middle" />
+            <label for="middle">Middle</label>
+          </li>
+          <li>
+            <input type="radio" name="expirience" id="senior" value="senior" />
+            <label for="senior">Senior</label>
+          </li>
+        </ul>
+      </div>
+
+      <div class="form-field">
+        <label for="date">Дата</label>
+        <input
+          type="date"
+          name="date"
+          id="date"
+          min="2024-04-13T12:00"
+          max="2024-04-19T12:00"
+          class="date"
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="dateLocal">Дата-2</label>
+        <input
+          type="datetime-local"
+          name="date"
+          id="dateLocal"
+          min="2024-04-13T12:00"
+          max="2024-04-19T12:00"
+        />
+      </div>
+
+      <div class="form-field">
+        <label for="time">Время</label>
+        <input type="time" name="time" id="time" />
+      </div>
+
+      <div class="form-field">
+        <label for="pdf">Загрузите файл</label>
+        <input type="file" name="pdf" id="pdf" />
+      </div>
+
+      <div class="form-field">
+        <label for="comment">Напишите комментарий</label>
+        <textarea
+          name="comment"
+          id="comment"
+          rows="5"
+          class="comment"
+        ></textarea>
+      </div>
+
+      <div class="form-field">
+        <input type="checkbox" name="policy" id="policy" />
+        <label for="policy">Agree with rules</label>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+
+    <script>
+      (() => {
+        document
+          .querySelector(".js-speaker-form")
+          .addEventListener("submit", e => {
+            e.preventDefault();
+
+            new FormData(e.currentTarget).forEach((value, name) =>
+              console.log(`${name}: ${value}`)
+            );
+            e.currentTarget.reset();
+          });
+      })();
+    </script>
+  </body>
+</html>
