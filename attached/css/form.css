@@ -96,3 +96,202 @@ body {
   border: 5px dashed gold;
   border-radius: 50px;
 }
+
+/* СТИЛИЗИРОВАННАЯ ФОРМА */
+
+.styled-form {
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  padding: 40px;
+  margin: 40px;
+  outline: 2px solid black;
+  border-radius: 10px;
+  gap: 40px;
+}
+
+.styled-form input {
+  max-width: 100%;
+  font-size: 20px;
+  padding: 10px 10px 10px 40px;
+  border-radius: 10px;
+  border: none;
+}
+
+.styled-form button {
+  font-size: 20px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+}
+
+.styled-form-field {
+  position: relative;
+}
+
+.styled-form label {
+  position: absolute;
+
+  top: 50%;
+  transform: translateY(-50%);
+  left: 40px;
+
+  font-size: 20px;
+
+  transition: top 250ms linear, left 250ms linear;
+}
+
+.styled-form .styled-form-field {
+  /* background-color: red; */
+}
+
+.styled-form-input:focus + .styled-form-label,
+.styled-form-input:not(:placeholder-shown) + .styled-form-label {
+  color: red;
+  top: -16px;
+  left: -8px;
+}
+
+/* иконка */
+
+.icon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  /* background-color: red; */
+  background-image: url(../../images/facebook.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.styled-form-input:focus ~ .icon {
+  background-color: yellow;
+  fill: green;
+  color: yellow;
+}
+
+/* даст стили элементу при фокусе на любом вложенном элементе */
+.styled-form:focus-within {
+  outline: 2px solid aqua;
+}
+
+/*  */
+
+.form2 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 400px;
+  outline: 2px dashed darkred;
+  padding: 30px;
+}
+
+.form-field2 {
+  position: relative;
+  display: flex;
+  width: 100%;
+}
+
+.form-label2 {
+  position: absolute;
+  top: 50%;
+  left: 40px;
+
+  transform: translateY(-50%);
+}
+
+.form-input2 {
+  padding: 10px 5px 10px 40px;
+}
+
+.icon2 {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translateY(-50%);
+
+  /* margin-left: 10px; */
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: gray;
+  outline: 2px solid red;
+}
+
+.form2 .form-label2 {
+  transition: top 250ms linear;
+}
+
+.form-field2:focus-within .form-label2 {
+  top: -10px;
+}
+
+.form-input2:not(:placeholder-shown) + .form-label2 {
+  top: -10px;
+  transition: top 250ms linear;
+}
+
+.form-field2:focus-within .icon2 {
+  background-color: orange;
+  transition: background-color 250ms linear;
+}
+
+/*  */
+/* СТИЛИЗИРОВАННЫЙ CHECKBOX */
+
+.checkbox-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+/* .checkbox-item {
+  display: flex;
+} */
+
+.checkbox {
+  /* appearance: none; */
+}
+.checkbox-label {
+  display: flex;
+  outline: 1px solid red;
+  margin-left: 40px;
+  margin-bottom: 20px;
+  margin-top: 5px;
+}
+
+.checkbox-icon {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid black;
+  background-color: blue;
+  /* про background-origin */
+  /* https://youtu.be/MXd5sUntOCU?t=5669 */
+  background-origin: border-box;
+  background-image: url(../../images/accelerate.svg);
+  background-size: contain;
+  border-radius: 4px;
+  margin-right: 10px;
+
+  transition: background-color 500ms linear, transform 250ms linear;
+}
+
+.checkbox-text {
+  color: blueviolet;
+  transition: color 250ms linear, transform 250ms linear;
+}
+
+.checkbox:checked ~ .checkbox-icon {
+  transform: scale(1.5);
+  background-color: yellow;
+  fill: red;
+  stroke: aqua;
+}
+
+.checkbox:hover ~ .checkbox-text {
+  color: chocolate;
+  transform: translateX(20px);
+}

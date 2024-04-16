@@ -163,7 +163,98 @@
 
       <button type="submit">Submit</button>
     </form>
+    <!--  -->
+    <br />
+    <hr />
+    <br />
+    <!-- СТИЛИЗИРОВАННАЯ ФОРМА -->
+    <h3>Отъезжающий label при фокусе на input</h3>
+    <a href="https://youtu.be/MXd5sUntOCU?t=1407">Репета</a>
 
+    <form class="styled-form">
+      <div class="styled-form-field">
+        <input
+          type="text"
+          name="styled-name"
+          id="name"
+          class="styled-form-input"
+          placeholder=" "
+        />
+        <label for="name" class="styled-form-label">Name</label>
+        <span class="icon"></span>
+      </div>
+      <div class="styled-form-field">
+        <input
+          type="email"
+          name="styled-email"
+          id="email"
+          class="styled-form-input"
+          placeholder=" "
+        />
+        <label for="email" class="styled-form-label">Email</label>
+        <span class="icon"></span>
+      </div>
+
+      <button type="submit">Submit</button>
+    </form>
+    <hr />
+
+    <!-- СТИЛИЗИРОВАННАЯ ФОРМА v2-->
+    <h3>
+      Отъезжающий label при фокусе на input - второй вариант. Меньше разметки
+    </h3>
+    <a href="https://youtu.be/MXd5sUntOCU?t=1407">Репета</a>
+
+    <form class="form2">
+      <label class="form-field2">
+        <input type="text" class="form-input2" name="name" placeholder=" " />
+        <span class="form-label2">Name</span>
+        <span class="icon2"></span>
+      </label>
+      <label class="form-field2">
+        <input type="email" class="form-input2" name="mail" placeholder=" " />
+        <span class="form-label2">Mail</span>
+        <span class="icon2"></span>
+      </label>
+    </form>
+    <hr />
+
+    <!--  -->
+
+    <!-- СТИЛИЗИРОВАННЫЙ CHECKBOX -->
+    <h3>СТИЛИЗИРОВАННЫЙ CHECKBOX</h3>
+    <p>Прячим кастомный чекбокс, а на его место ставим иконку svg</p>
+    <a href="https://youtu.be/MXd5sUntOCU?t=4242">Репета</a>
+    <form class="checkbox-form">
+      <ul class="checkbox-list">
+        <li class="checkbox-item">
+          <label class="checkbox-label"
+            ><input class="checkbox" type="checkbox" name="topic" />
+            <span class="checkbox-icon"></span>
+            <span class="checkbox-text">HTML</span></label
+          >
+        </li>
+        <li>
+          <label class="checkbox-label">
+            <input class="checkbox" type="checkbox" name="topic" /><span
+              class="checkbox-icon"
+            ></span
+            ><span class="checkbox-text">CSS</span></label
+          >
+        </li>
+        <li>
+          <label class="checkbox-label">
+            <input class="checkbox" type="checkbox" name="topic" /><span
+              class="checkbox-icon"
+            ></span
+            ><span class="checkbox-text">JS</span></label
+          >
+        </li>
+      </ul>
+      <button type="submit">Button</button>
+    </form>
+
+    <!--  -->
     <script>
       (() => {
         document
