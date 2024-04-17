@@ -18,6 +18,32 @@
       <div class="container">
         <nav class="nav">
           <a href="" class="company-logo">Логотип</a>
+          <button
+            type="button"
+            class="burger-btn is-open"
+            aria-expanded="false"
+            aria-controls="menu-container"
+            data-burger-btn
+          >
+            <svg
+              width="30"
+              height="30"
+              aria-label="Переключатель мобильного меню"
+            >
+              <use
+                class="icon-star"
+                href="../images/symbol-defs.svg#icon-star"
+              ></use>
+              <use
+                class="icon-home"
+                href="../images/symbol-defs.svg#icon-home"
+              ></use>
+            </svg>
+          </button>
+
+          <div class="menu-container" id="menu-container" data-menu>
+            Контент меню
+          </div>
         </nav>
       </div>
     </div>
@@ -48,6 +74,23 @@
           </ul>
         </div>
       </section>
+
+      <script>
+        (() => {
+          const menuBtnRef = document.querySelector("[data-burger-btn]");
+          const mobileMenuRef = document.querySelector("[data-menu]");
+
+          menuBtnRef.addEventListener("click", () => {
+            const expanded =
+              menuBtnRef.getAttribute("aria-expanded") === "true" || false;
+
+            menuBtnRef.classList.toggle("is-open");
+            menuBtnRef.setAttribute("aria-expanded", !expanded);
+
+            mobileMenuRef.classList.toggle("is-open");
+          });
+        })();
+      </script>
     </main>
   </body>
 </html>
