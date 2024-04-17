@@ -1,0 +1,139 @@
+body {
+  background-color: tan;
+}
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.section {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.section-title {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.page-header {
+  border-bottom: 2px solid black;
+}
+
+.page-header .nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 80px;
+}
+
+.features-set {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    justify-content: space-evenly;
+
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  @media screen and (min-width: 1140px) {
+    gap: 30px;
+  }
+}
+
+.features-item {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff;
+  font-size: 32px;
+  outline: 1px solid grey;
+
+  @media screen and (min-width: 768px) {
+    flex-basis: calc((100% - 20px) / 2);
+  }
+
+  @media screen and (min-width: 1140px) {
+    flex-basis: calc((100% - 90px) / 3);
+  }
+
+  &:not(:last-child) {
+    @media screen and (max-width: 767px) {
+      margin-bottom: 10px;
+    }
+  }
+}
+
+.features-item:nth-child(even) {
+  background-color: orange;
+}
+.features-item:nth-child(odd) {
+  background-color: chocolate;
+}
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+
+  @media screen and (min-width: 480px) {
+    width: 480px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 768px;
+  }
+  @media screen and (min-width: 1140px) {
+    width: 1140px;
+  }
+}
+
+.company-logo {
+  /* @extends %link */
+  /* https://youtu.be/t5hlXeln3go?t=1554 */
+
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  background-color: lightskyblue;
+  color: #fff;
+  text-decoration: none;
+}
+
+.reviews {
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+}
+
+.reviews-set {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+
+  @media screen and (min-width: 1140px) {
+    gap: 30px;
+  }
+}
+
+.reviews-item {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  /* color: #fff; */
+  font-size: 32px;
+
+  background-color: lightseagreen;
+  outline: 1px solid black;
+  flex-basis: calc((100% - 40px) / 3);
+
+  @media screen and (min-width: 1140px) {
+    flex-basis: calc((100% - 60px) / 3);
+  }
+}
+
+.reviews-item:nth-child(odd) {
+  background-color: lightcoral;
+}
