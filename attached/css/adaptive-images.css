@@ -1,0 +1,40 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: tan;
+  /* box-sizing: border-box; */
+  margin: 0;
+}
+ul,
+li {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/*  */
+/* БАЗОВАЯ ОТЗЫВЧИВОСТЬ */
+/*  */
+
+.thumb {
+  outline: 2px solid red;
+  width: 100%;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*  */
+/* ОТЗЫВЧИВЫЙ ЭЛЕМЕНТ <img> */
+/*  */
