@@ -1,6 +1,16 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
 body {
   background-color: tan;
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   margin: 0;
 }
 ul,
@@ -144,7 +154,8 @@ li {
 }
 
 /*  */
-/* burger-btn */
+/* ВЫПАДАЮЩЕЕ МЕНЮ - БУРГЕР BUTTON */
+/*  */
 
 .burger-btn {
   display: inline-flex;
@@ -153,6 +164,10 @@ li {
   border: none;
   background-color: transparent;
   padding-right: 30px;
+
+  @media screen and (min-width: 600px) {
+    display: none;
+  }
 }
 
 .burger-btn .icon-star {
@@ -173,15 +188,6 @@ li {
 }
 
 .menu-container {
-  display: none;
-
-  position: absolute;
-  top: 100%;
-  left: 0;
-
-  width: 100%;
-  height: 300px;
-
   background-color: lightgoldenrodyellow;
   padding: 20px;
   text-align: center;
@@ -190,9 +196,46 @@ li {
   &.is-open {
     display: block;
   }
+  @media screen and (max-width: 599px) {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    width: 100%;
+  }
+
+  @media screen and (min-width: 600px) {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-around;
+    /* gap: 30px; */
+  }
 }
 
-/* Модальное окно на телефоне */
+.navigation {
+  outline: 2px solid red;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(255, 0, 0, 0.3);
+  @media screen and (min-width: 600px) {
+    width: 100px;
+  }
+}
+
+.contacts {
+  outline: 2px solid blue;
+  width: 100%;
+  height: 50px;
+  background-color: rgba(0, 0, 255, 0.3);
+  @media screen and (min-width: 600px) {
+    width: 100px;
+  }
+}
+
+/*  */
+/* МОДАЛЬНОЕ ОКНО НА ТЕЛЕФОНЕ */
+/*  */
 
 .modal-btn-open {
   margin: 30px;
@@ -204,72 +247,51 @@ li {
   position: fixed;
   top: 0;
   left: 0;
-  bottom: 0;
-  right: 0;
 
-  height: 100%;
   width: 100%;
+  height: 100%;
 
-  /* padding: 40px 30px; */
+  padding: 30px 20px;
+
+  /* overflow-y: scroll - что бы прокручивался контент внурти модалки */
+  overflow-y: scroll;
 
   background-color: rgba(0, 0, 0, 0.3);
 
-  /* что бы прокручивался контент внурти модалки */
-  overflow-y: scroll;
-
-  @media screen and (min-width: 430px) {
-    padding-left: 30px;
-    padding-right: 30px;
-    width: 430px;
+  @media screen and (min-width: 600px) {
+    padding: 30px 0;
   }
-}
-
-.container-modal {
-  /* max-width: 1140px; */
-  width: 100%;
-
-  /* padding: 30px; */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
 }
 
 .modal {
-  border-radius: 10px;
-
   padding: 40px 30px;
-  margin: 40px 30px;
 
   background-color: #fff;
 
-  max-width: 90%;
-  width: auto;
-  /* max-height: 90%; */
-  /* overflow-y: auto; */
+  width: 100%;
+  height: 100%;
 
-  @media screen and (min-width: 430px) {
-    width: 430px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: lightcoral;
-    /* position: absolute; */
-    /* top: 50%;
+  overflow-y: scroll;
+
+  @media screen and (min-width: 600px) {
+    position: absolute;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); */
-  }
-
-  @media screen and (min-width: 1200px) {
-    width: 1200px;
+    transform: translate(-50%, -50%);
+    max-width: 600px;
+    width: 100%;
   }
 }
 
 .backdrop.is-hidden {
+  /* display: none; */
   opacity: 0;
+  /* pointer-events - Элемент будет игнорировать любые события указателя */
   pointer-events: none;
 }
 
 body.modal-open {
+  /* https://youtu.be/Z5lYspOgtrY?t=596 */
   overflow: hidden;
 }
 
