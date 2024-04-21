@@ -12,35 +12,139 @@
     <hr />
     <a href="https://youtu.be/5-dBlOTvv0A?t=76">Репета</a>
     <hr />
-    <!-- БАЗОВАЯ ОТЗЫВЧИВОСТЬ -->
 
-    <h3>БАЗОВАЯ ОТЗЫВЧИВОСТЬ:</h3>
-    <a href="https://youtu.be/5-dBlOTvv0A?t=72">Репета</a>
-      <br>
-      <br>
+    <main>
+      <!-- БАЗОВАЯ ОТЗЫВЧИВОСТЬ -->
 
+      <h3>БАЗОВАЯ ОТЗЫВЧИВОСТЬ:</h3>
+      <a href="https://youtu.be/5-dBlOTvv0A?t=72">Репета</a>
+      <br />
+      <br />
 
-    <div class="thumb">
-      <img src="../images/sequoia-640.jpg" alt="Sequoia">
-    </div>
-    <hr />
-    <hr />
-    <!-- ОТЗЫВЧИВЫЙ ЭЛЕМЕНТ <img> -->
+      <div class="thumb">
+        <img src="../images/sequoia-640.jpg" alt="Sequoia" />
+      </div>
+      <hr />
+      <hr />
+      <!-- ОТЗЫВЧИВЫЙ ЭЛЕМЕНТ <img> -->
+      <!-- дескриптор x -->
 
-    <h3>ОТЗЫВЧИВЫЙ ЭЛЕМЕНТ  &lt;img&gt;</h3>
-    <a href="https://youtu.be/5-dBlOTvv0A?t=706">Репета</a>
-      <br>
-      <br>
+      <h3>ОТЗЫВЧИВЫЙ ЭЛЕМЕНТ &lt;img&gt; - дескриптор x</h3>
+      <p>
+        использовать, когда есть фиксированный размер холста. То есть известна
+        width.
+      </p>
+      <a href="https://youtu.be/5-dBlOTvv0A?t=706">Репета</a>
+      <br />
+      <br />
 
+      <div class="thumb">
+        <img
+          srcset="
+            ../images/sequoia/sequoia-300.jpg 1x,
+            ../images/sequoia/sequoia-600.jpg 2x,
+            ../images/sequoia/sequoia-900.jpg 3x
+          "
+          src="../images/sequoia/sequoia-300.jpg"
+          alt="Sequoia"
+          width="300"
+        />
+      </div>
+      <hr />
+      <hr />
 
-    <div class="thumb">
-      <img srcset="" src="../images/sequoia@2x.jpg" alt="Sequoia">
-    </div>
-    <hr />
-    <hr />
+      <!--  -->
+      <!-- дескриптор w -->
+      <!--  -->
+      <p>Отзывчивые изображения. Дескриптор w и атрибут sizes</p>
+      <p>
+        Дескриптор w указывает браузеру ширину изображения еще до его загрузки
+      </p>
 
+      <a href="https://youtu.be/5-dBlOTvv0A?t=1466">Репета</a>
+      <br />
+      <br />
 
+      <div class="thumb">
+        <img
+          srcset="
+            ../images/sequoia/sequoia-300.jpg 300w,
+            ../images/sequoia/sequoia-600.jpg 600w,
+            ../images/sequoia/sequoia-900.jpg 900w
+          "
+          src="../images/sequoia/sequoia-300.jpg"
+          alt="Sequoia"
+          sizes="(min-width: 800px) 33vw, (min-width: 500px) 55vw, 100vw"
+        />
+      </div>
+      <hr />
+      <hr />
+
+      <!-- ОТЗЫВЧИВАЯ ГАЛЕРЕЯ ИЗОБРАЖЕНИЙ -->
+
+      <p>Отзывчивые изображения. Галерея изображений</p>
+
+      <a href="https://youtu.be/5-dBlOTvv0A?t=2505">Репета</a>
+      <br />
+      <br />
+
+      <div class="container">
+        <ul class="img-set">
+          <li class="img-set__item">
+            <img
+              loading="lazy"
+              src="../images/sequoia/sequoia-300.jpg"
+              alt="Sequoia"
+              srcset="
+                ../images/sequoia/sequoia-300.jpg   300w,
+                ../images/sequoia/sequoia-600.jpg   600w,
+                ../images/sequoia/sequoia-900.jpg   900w,
+                ../images/sequoia/sequoia-1200.jpg 1200w
+              "
+              sizes="(min-width: 900px) 25vw, (min-width: 600px) 50vw, 100vw"
+            />
+          </li>
+          <li class="img-set__item"></li>
+          <li class="img-set__item"></li>
+          <li class="img-set__item"></li>
+        </ul>
+      </div>
+      <hr />
+      <hr />
+
+      <!--  -->
+
+      <!-- ЭЛЕМЕНТ <picture> + .webp -->
+
+      <p>ЭЛЕМЕНТ &lt;picture&gt; + .webp</p>
+
+      <a href="https://youtu.be/5-dBlOTvv0A?t=4157">Репета</a>
+      <br />
+      <br />
+
+      <picture>
+        <source
+          srcset="
+            ../images/sequoia/sequoia-300.webp 300w,
+            ../images/sequoia/sequoia-600.webp 600w,
+            ../images/sequoia/sequoia-900.webp 900w
+          "
+          type="image/webp"
+        />
+        <source
+          srcset="
+            ../images/sequoia/sequoia-300.jpg 300w,
+            ../images/sequoia/sequoia-600.jpg 600w,
+            ../images/sequoia/sequoia-900.jpg 900w
+          "
+          type="image/jpeg"
+          sizes="(min-width: 900px) 25vw, (min-width: 600px) 50vw, 100vw"
+        />
+        <img src="../images/sequoia/sequoia-300.jpg" alt="Sequoia" />
+      </picture>
+
+      <hr />
+      <hr />
     </main>
-    
   </body>
 </html>
