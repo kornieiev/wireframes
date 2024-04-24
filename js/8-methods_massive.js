@@ -91,7 +91,7 @@ const color =
     colorPickerOptions.findIndex(option => option.label === "bluee")
   ]?.color;
 
-console.log(`${label}: ${color}`);
+// console.log(`${label}: ${color}`);
 
 // Метод findIndex()
 //
@@ -111,7 +111,56 @@ let sum = tweets.reduce((total, like) => {
   return (total += like.likes);
 }, 0);
 
-console.log("sum", sum);
+// console.log("sum", sum);
 
 // Метод reduce()
+//
+
+//
+// Просунутий reduce()
+
+const tweets2 = [
+  { id: "000", likes: 5, tags: ["js", "nodejs"] },
+  { id: "001", likes: 2, tags: ["html", "css"] },
+  { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+  { id: "003", likes: 8, tags: ["css", "react"] },
+  { id: "004", likes: 0, tags: ["js", "nodejs", "react"] }
+];
+
+const getTags = tweets2 =>
+  tweets2.reduce((allTags, tweet) => {
+    allTags.push(...tweet.tags);
+
+    return allTags;
+  }, []);
+
+const tags = getTags(tweets2);
+// console.log("tags", tags);
+
+// Винесемо callback-функцію окремо, а в reducе передамо посилання на неї.
+// Це стандартна практика, якщо callback-функція досить велика.
+
+// Якщо в об'єкті-акумуляторі acc відсутня своя властивість з ключем tag,
+// то створюємо її і записуємо їй значення 0.
+// В іншому випадку збільшуємо значення на 1.
+const getTagStats = (acc, tag) => {
+  // console.log("acc", acc);
+  // console.log("tag", tag);
+
+  if (!acc.hasOwnProperty(tag)) {
+    acc[tag] = 0;
+  }
+
+  acc[tag] += 1;
+
+  return acc;
+};
+
+// Початкове значення акумулятора - це порожній об'єкт {}
+const countTags = tags => tags.reduce(getTagStats, {});
+
+const tagCount = countTags(tags);
+// console.log(tagCount);
+
+// Просунутий reduce()
 //
