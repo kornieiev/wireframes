@@ -170,13 +170,13 @@ const tagCount = countTags(tags);
 
 const scores = [61, 19, 74, 35, 92, 56];
 scores.sort();
-console.log(scores); // [19, 35, 56, 61, 74, 92]
+// console.log(scores); // [19, 35, 56, 61, 74, 92]
 
 const scores2 = [27, 2, 41, 4, 7, 3, 75];
 const newScores2 = [...scores2].sort();
 scores2.sort();
-console.log(scores2); // [2, 27, 3, 4, 41, 7, 75]
-console.log(newScores2); // [2, 27, 3, 4, 41, 7, 75]
+// console.log(scores2); // [2, 27, 3, 4, 41, 7, 75]
+// console.log(newScores2); // [2, 27, 3, 4, 41, 7, 75]
 
 // Метод sort()
 //
@@ -184,13 +184,41 @@ console.log(newScores2); // [2, 27, 3, 4, 41, 7, 75]
 //
 // Метод localeCompare()
 
-const student3 = ["Віка", "Андрій", "Олег", "Юля", "Борис", "Катя"];
+const students3 = ["Віка", "Андрій", "Олег", "Юля", "Борис", "Катя"];
 
 const inAlphabetOrder = [...students3].sort((a, b) => a.localeCompare(b));
-console.log(inAlphabetOrder); // ['Андрій', 'Борис', 'Віка', 'Катя', 'Олег', 'Юля']
+// console.log(inAlphabetOrder); // ['Андрій', 'Борис', 'Віка', 'Катя', 'Олег', 'Юля']
 
 const inReversedOrder = [...students3].sort((a, b) => b.localeCompare(a));
-console.log(inReversedOrder); // ['Юля', 'Олег', 'Катя', 'Віка', 'Борис', 'Андрій']
+// console.log(inReversedOrder); // ['Юля', 'Олег', 'Катя', 'Віка', 'Борис', 'Андрій']
 
 // Метод localeCompare()
+//
+
+//
+// Сортування об'єктів
+
+const students4 = [
+  { name: "Манго", score: 83 },
+  { name: "Полі", score: 59 },
+  { name: "Аякс", score: 37 },
+  { name: "Ківі", score: 94 }
+];
+
+const inAscendingScoreOrder = students4.sort((firstStudent, secondStudent) => {
+  return firstStudent.score - secondStudent.score;
+});
+// console.log("inAscendingScoreOrder", inAscendingScoreOrder);
+
+// const inDescendingScoreOrder = students4.sort(
+//   (firstStudent, secondStudent) => secondStudent.score - firstStudent.score
+// );
+// console.log("inDescendingScoreOrder", inDescendingScoreOrder);
+
+// const inAlphabeticalOrder = students4.sort((firstStudent, secondStudent) =>
+//   firstStudent.name.localeCompare(secondStudent.name)
+// );
+// console.log("inAlphabeticalOrder", inAlphabeticalOrder);
+
+// Сортування об'єктів
 //
