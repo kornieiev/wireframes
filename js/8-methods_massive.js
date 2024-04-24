@@ -8,23 +8,21 @@ const students = [
 
 const allCourses = students.flatMap(student => student.courses);
 // ['математика', 'фізика', 'інформатика', 'математика', 'фізика', 'біологія'];
-console.log("allCourses", allCourses);
+// console.log("allCourses", allCourses);
 
 const uniqueCourses = allCourses.filter(
   (course, index, array) => array.indexOf(course) === index
 );
 
-console.log("uniqueCourses", uniqueCourses);
+// console.log("uniqueCourses", uniqueCourses);
 
-console.log("=====================");
+// console.log("=====================");
 
 const uniqueCourses2 = allCourses.filter((course, index, array) => {
-  // console.log("course", course);
-  console.log("index", index);
-  // console.log("array", array);
+  // console.log("index", index);
 
   array.indexOf(course) === index;
-  console.log("array.indexOf(course)", array.indexOf(course));
+  // console.log("array.indexOf(course)", array.indexOf(course));
 });
 
 // "course"          indexOf    index
@@ -36,4 +34,64 @@ const uniqueCourses2 = allCourses.filter((course, index, array) => {
 // 'біологія'           5         5     ===
 
 // ФИЛЬТРАЦИЯ УНИКАЛЬНЫХ ЭЛЕМЕНТОВ МАССИВА
+//
+
+//
+// Метод filter()
+
+const LOW_SCORE = 50;
+const HIGH_SCORE = 80;
+const students2 = [
+  { name: "Манго", score: 83 },
+  { name: "Полі", score: 59 },
+  { name: "Аякс", score: 37 },
+  { name: "Ківі", score: 94 },
+  { name: "Х'юстон", score: 64 }
+];
+
+const best = students2.filter(student => student.score >= HIGH_SCORE);
+// console.log(best); // Масив об'єктів з іменами Манго і Ківі
+
+const worst = students2.filter(student => student.score < LOW_SCORE);
+// console.log(worst); // Масив з одним об'єктом Аякс
+
+// В колбек-функції зручно деструктуризувати властивості об'єкта
+const average = students2.filter(
+  ({ score }) => score >= LOW_SCORE && score < HIGH_SCORE
+);
+// console.log(average); // Масив об'єктів з іменами Полі і Х'юстон
+
+// Метод filter()
+//
+
+//
+// Метод findIndex()
+
+const colorPickerOptions = [
+  { label: "red", color: "#F44336" },
+  { label: "green", color: "#4CAF50" },
+  { label: "blue", color: "#2196F3" },
+  { label: "pink", color: "#E91E63" },
+  { label: "indigo", color: "#3F51B5" }
+];
+
+colorPickerOptions.findIndex(option => option.label === "blue"); // 2
+colorPickerOptions.findIndex(option => option.label === "pink"); // 3
+colorPickerOptions.findIndex(option => option.label === "white"); // -1
+
+colorPickerOptions.findIndex(option => option.label === "blue"); // 2
+
+const label =
+  colorPickerOptions[
+    colorPickerOptions.findIndex(option => option.label === "bluee")
+  ]?.label;
+
+const color =
+  colorPickerOptions[
+    colorPickerOptions.findIndex(option => option.label === "bluee")
+  ]?.color;
+
+console.log(`${label}: ${color}`);
+
+// Метод findIndex()
 //
