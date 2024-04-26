@@ -68,35 +68,60 @@ dog.name = "Манго";
 
 //
 
-const Car = function ({ brand = "", model = "", price = "" } = {}) {
-  this.brand = brand;
-  this.model = model;
-  this.price = price;
+// const Car = function ({ brand = "", model = "", price = "" } = {}) {
+//   this.brand = brand;
+//   this.model = model;
+//   this.price = price;
 
-  this.changePrice = function (newPrice) {
-    this.price = newPrice;
-  };
+//   this.changePrice = function (newPrice) {
+//     this.price = newPrice;
+//   };
+// };
+
+// const myCar1 = new Car({ brand: "vw", model: "passat", price: 18000 });
+// console.log("myCar1", myCar1);
+
+// const myCar2 = new Car({ brand: "opel", model: "corsa", price: 7000 });
+// console.log("myCar2", myCar2);
+
+// const myCar3 = new Car();
+// console.log("myCar3", myCar3);
+
+// myCar2.changePrice(50000);
+
+// console.log("myCar2", myCar2);
+
+// console.log("Car.prototype", Car.prototype);
+
+// Car.prototype.changeModel = function (newModel) {
+//   this.model = newModel;
+// };
+
+// myCar2.changeModel("bwm");
+// console.log("myCar2", myCar2);
+
+//
+
+////
+////
+////
+
+//
+
+// https://youtu.be/snuVmKJ1gBg?t=3423
+
+const User = function ({ email, password } = {}) {
+  this.email = email;
+  this.password = password;
 };
 
-const myCar1 = new Car({ brand: "vw", model: "passat", price: 18000 });
-console.log("myCar1", myCar1);
+User.prototype.changeEmail = function (newEmail) {
+  this.email = newEmail;
+};
 
-const myCar2 = new Car({ brand: "opel", model: "corsa", price: 7000 });
-console.log("myCar2", myCar2);
+const lola = new User({ email: "q@w.e", password: "qweqwe" });
 
-const myCar3 = new Car();
-console.log("myCar3", myCar3);
+console.log("lola", lola);
 
-myCar2.changePrice(50000);
-
-console.log("myCar2", myCar2);
-
-console.log("Car.prototype", Car.prototype);
-
-//
-
-////
-////
-////
-
-//
+lola.changeEmail("new@email.com");
+console.log("lola", lola);
