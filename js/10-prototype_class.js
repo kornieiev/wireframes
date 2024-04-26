@@ -42,20 +42,61 @@ dog.name = "Манго";
 //
 //
 
-const objC = {
-  z: 5
+// const objC = {
+//   z: 5
+// };
+
+// const objB = Object.create(objC);
+
+// objB.y = 2;
+
+// console.log(objC);
+// // console.log(objC.hasOwnProperty("z"));
+
+// console.log(objB);
+// console.log(objB.y);
+// console.log(objB.z);
+
+// objC.z = 100;
+// console.log(objB.z);
+
+//
+
+////
+////
+////
+
+//
+
+const Car = function ({ brand = "", model = "", price = "" } = {}) {
+  this.brand = brand;
+  this.model = model;
+  this.price = price;
+
+  this.changePrice = function (newPrice) {
+    this.price = newPrice;
+  };
 };
 
-const objB = Object.create(objC);
+const myCar1 = new Car({ brand: "vw", model: "passat", price: 18000 });
+console.log("myCar1", myCar1);
 
-objB.y = 2;
+const myCar2 = new Car({ brand: "opel", model: "corsa", price: 7000 });
+console.log("myCar2", myCar2);
 
-console.log(objC);
-// console.log(objC.hasOwnProperty("z"));
+const myCar3 = new Car();
+console.log("myCar3", myCar3);
 
-console.log(objB);
-console.log(objB.y);
-console.log(objB.z);
+myCar2.changePrice(50000);
 
-objC.z = 100;
-console.log(objB.z);
+console.log("myCar2", myCar2);
+
+console.log("Car.prototype", Car.prototype);
+
+//
+
+////
+////
+////
+
+//
