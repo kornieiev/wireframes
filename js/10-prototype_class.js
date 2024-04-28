@@ -125,3 +125,64 @@ console.log("lola", lola);
 
 lola.changeEmail("new@email.com");
 console.log("lola", lola);
+
+//
+
+////
+////
+////
+
+// Статичные свойства
+
+// https://youtu.be/snuVmKJ1gBg?t=4395
+
+// User.message = "Я статическое свойство. Меня нет на экземплярах, или методах";
+// console.log("lola", lola);
+// console.log("User", User);
+// console.log("User.message", User.message);
+
+// User.showObj = function (obj) {
+//   console.log(obj);
+//   console.log(obj.email);
+//   console.log(obj.password);
+// };
+
+// User.showObj(lola);
+
+//
+
+////
+////
+////
+
+// Пример использования классов на плагине Siema
+// https://youtu.be/snuVmKJ1gBg?t=5242
+
+const CounterPlugin = function ({ rootSelector, initialValue = 0, step = 1 }) {
+  this.rootSelector = rootSelector;
+  this._value = initialValue;
+  this._step = step;
+};
+CounterPlugin.prototype.increment = function (value) {
+  this._value += value;
+
+  const btnI = document.querySelector("increment");
+  console.log("btnI", btnI);
+
+  btnI.addEventListener("click", e => {
+    console.log(e);
+  });
+};
+CounterPlugin.prototype.decrement = function (value) {
+  this._value -= value;
+};
+
+const counter1 = new CounterPlugin({ rootSelector: "1", step: 10 });
+
+console.log("counter1", counter1);
+
+counter1.increment(20);
+console.log("counter1", counter1);
+
+const counter2 = new CounterPlugin({ rootSelector: "2", step: 1 });
+console.log("counter2", counter2);
