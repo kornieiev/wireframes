@@ -110,21 +110,21 @@ dog.name = "Манго";
 
 // https://youtu.be/snuVmKJ1gBg?t=3423
 
-const User = function ({ email, password } = {}) {
-  this.email = email;
-  this.password = password;
-};
+// const User = function ({ email, password } = {}) {
+//   this.email = email;
+//   this.password = password;
+// };
 
-User.prototype.changeEmail = function (newEmail) {
-  this.email = newEmail;
-};
+// User.prototype.changeEmail = function (newEmail) {
+//   this.email = newEmail;
+// };
 
-const lola = new User({ email: "q@w.e", password: "qweqwe" });
+// const lola = new User({ email: "q@w.e", password: "qweqwe" });
 
-console.log("lola", lola);
+// console.log("lola", lola);
 
-lola.changeEmail("new@email.com");
-console.log("lola", lola);
+// lola.changeEmail("new@email.com");
+// console.log("lola", lola);
 
 //
 
@@ -158,31 +158,63 @@ console.log("lola", lola);
 // Пример использования классов на плагине Siema
 // https://youtu.be/snuVmKJ1gBg?t=5242
 
-const CounterPlugin = function ({ rootSelector, initialValue = 0, step = 1 }) {
-  this.rootSelector = rootSelector;
+const CounterPlugin = function ({
+  rootSelector,
+  initialValue = 0,
+  step = 1
+} = {}) {
   this._value = initialValue;
   this._step = step;
+
+  this._refs = this._getRefs(rootSelector);
+
+  this._bindEvents();
+  this.updateValueUI();
 };
-CounterPlugin.prototype.increment = function (value) {
-  this._value += value;
 
-  const btnI = document.querySelector("increment");
-  console.log("btnI", btnI);
+CounterPlugin.prototype._getRefs = function (rootSelector) {
+  // console.log("rootSelector", rootSelector);
 
-  btnI.addEventListener("click", e => {
-    console.log(e);
+  const refs = {};
+  refs.container = document.querySelector(rootSelector);
+  refs.incrementBtn = refs.container.querySelector("[data-increment]");
+  refs.decrementBtn = refs.container.querySelector("[data-decrement]");
+  refs.value = refs.container.querySelector("[data-value]");
+
+  return refs;
+};
+
+CounterPlugin.prototype._bindEvents = function () {
+  this._refs.incrementBtn.addEventListener("click", () => {
+    console.log("🚀 ~ this._refs.incrementBtn.addEventListener ~ this:", this);
+    this.increment();
+    this.updateValueUI();
+  });
+  this._refs.decrementBtn.addEventListener("click", () => {
+    console.log("🚀 ~ this._refs.decrementBtn.addEventListener ~ this:", this);
+    this.decrement();
+    this.updateValueUI();
   });
 };
-CounterPlugin.prototype.decrement = function (value) {
-  this._value -= value;
+
+CounterPlugin.prototype.updateValueUI = function () {
+  this._refs.value.textContent = this._value;
 };
 
-const counter1 = new CounterPlugin({ rootSelector: "1", step: 10 });
+CounterPlugin.prototype.increment = function () {
+  this._value += this._step;
+};
 
-console.log("counter1", counter1);
+CounterPlugin.prototype.decrement = function () {
+  this._value -= this._step;
+};
 
-counter1.increment(20);
-console.log("counter1", counter1);
+const counter1 = new CounterPlugin({
+  rootSelector: "#counter-1",
+  step: 10,
+  initialValue: 100
+});
+// console.log("counter1", counter1);
 
-const counter2 = new CounterPlugin({ rootSelector: "2", step: 1 });
-console.log("counter2", counter2);
+const counter2 = new CounterPlugin({ rootSelector: "#counter-2", step: 1 });
+// console.log("counter2", counter2);
