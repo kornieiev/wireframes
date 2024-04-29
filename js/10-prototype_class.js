@@ -228,60 +228,60 @@ const counter2 = new CounterPlugin({ rootSelector: "#counter-2", step: 1 });
 // Классы - новый способ записывать функцию-конструктор со свойством prototype
 // https://youtu.be/Z-w9kLvu18A?t=100
 
-class Car {
-  static value =
-    "Статическое свойство, доступное только прототипу, но не экземпляру ";
+// class Car {
+//   static value =
+//     "Статическое свойство, доступное только прототипу, но не экземпляру ";
 
-  static method = function (obj) {
-    console.log(
-      "Статический метод, доступный только прототипу, но не экземпляру"
-    );
-    console.log("obj", obj);
-  };
+//   static method = function (obj) {
+//     console.log(
+//       "Статический метод, доступный только прототипу, но не экземпляру"
+//     );
+//     console.log("obj", obj);
+//   };
 
-  #privatProperty = "Examlpe of Privat Property";
-  // privatProperty не доступно на экземпляре класса
+//   #privatProperty = "Examlpe of Privat Property";
+//   // privatProperty не доступно на экземпляре класса
 
-  constructor({ brand, model, price } = {}) {
-    console.log("constructor");
-    console.log(this);
+//   constructor({ brand, model, price } = {}) {
+//     console.log("constructor");
+//     console.log(this);
 
-    this.brand = brand;
-    this.model = model;
-    this.price = price;
-  }
-  changePrice(newPrice) {
-    this.price = newPrice;
-  }
-  updateModel(newModel) {
-    this.model = newModel;
-  }
+//     this.brand = brand;
+//     this.model = model;
+//     this.price = price;
+//   }
+//   changePrice(newPrice) {
+//     this.price = newPrice;
+//   }
+//   updateModel(newModel) {
+//     this.model = newModel;
+//   }
 
-  getBrand() {
-    return this.brand;
-  }
-  setBrand(newBrand) {
-    this.brand = newBrand;
-  }
-}
-console.dir(Car);
+//   getBrand() {
+//     return this.brand;
+//   }
+//   setBrand(newBrand) {
+//     this.brand = newBrand;
+//   }
+// }
+// console.dir(Car);
 
-const myCar1 = new Car({ brand: "vw", model: "passat", price: 18000 });
-console.log("myCar1", myCar1);
-
-const myCar2 = new Car({ brand: "opel", model: "corsa", price: 7000 });
-console.log("myCar2", myCar2);
-
-// myCar1.changePrice(20000);
+// const myCar1 = new Car({ brand: "vw", model: "passat", price: 18000 });
 // console.log("myCar1", myCar1);
 
-Car.method(myCar1);
-console.log(Car.value);
+// const myCar2 = new Car({ brand: "opel", model: "corsa", price: 7000 });
+// console.log("myCar2", myCar2);
 
-console.log(myCar1.getBrand());
+// // myCar1.changePrice(20000);
+// // console.log("myCar1", myCar1);
 
-myCar1.setBrand("Volvo");
-console.log(myCar1.getBrand());
+// Car.method(myCar1);
+// console.log(Car.value);
+
+// console.log(myCar1.getBrand());
+
+// myCar1.setBrand("Volvo");
+// console.log(myCar1.getBrand());
 
 //
 
@@ -290,5 +290,53 @@ console.log(myCar1.getBrand());
 ////
 
 // Наследование
-
 // https://youtu.be/Z-w9kLvu18A?t=2323
+
+class Hero {
+  constructor({ name = "hero", xp = 0 } = {}) {
+    this.name = name;
+    this.xp = xp;
+  }
+
+  gainXp(amount) {
+    console.log(`${this.name} получает ${amount} опыта`);
+    this.xp += amount;
+  }
+}
+
+class Warrior extends Hero {
+  constructor({ weapon = "knife", ...restProps } = {}) {
+    super(restProps);
+    this.weapon = weapon;
+  }
+}
+
+class SuperWarior extends Warrior {
+  constructor({ roar = "AAAA", ...restProps } = {}) {
+    super(restProps);
+    this.roar = roar;
+  }
+  makeRoar(roarValue) {
+    this.roar = roarValue;
+    console.log("roarValue:", roarValue);
+  }
+}
+
+const lola = new Hero({ name: "lola", xp: 1000 });
+console.log("lola", lola);
+
+lola.gainXp(500);
+
+const leo = new Warrior({ name: "leo", xp: 5, weapon: "bazooka" });
+console.log("leo", leo);
+
+const loli = new SuperWarior({
+  name: "loli",
+  xp: 999,
+  weapon: "topor",
+  roar: "Hurray!"
+});
+console.log("loli", loli);
+
+loli.makeRoar("I'll WIN!");
+console.log("loli", loli);
