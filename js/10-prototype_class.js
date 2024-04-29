@@ -186,12 +186,12 @@ CounterPlugin.prototype._getRefs = function (rootSelector) {
 
 CounterPlugin.prototype._bindEvents = function () {
   this._refs.incrementBtn.addEventListener("click", () => {
-    console.log("🚀 ~ this._refs.incrementBtn.addEventListener ~ this:", this);
+    // console.log("🚀 ~ this._refs.incrementBtn.addEventListener ~ this:", this);
     this.increment();
     this.updateValueUI();
   });
   this._refs.decrementBtn.addEventListener("click", () => {
-    console.log("🚀 ~ this._refs.decrementBtn.addEventListener ~ this:", this);
+    // console.log("🚀 ~ this._refs.decrementBtn.addEventListener ~ this:", this);
     this.decrement();
     this.updateValueUI();
   });
@@ -218,3 +218,77 @@ const counter1 = new CounterPlugin({
 
 const counter2 = new CounterPlugin({ rootSelector: "#counter-2", step: 1 });
 // console.log("counter2", counter2);
+
+//
+
+////
+////
+////
+
+// Классы - новый способ записывать функцию-конструктор со свойством prototype
+// https://youtu.be/Z-w9kLvu18A?t=100
+
+class Car {
+  static value =
+    "Статическое свойство, доступное только прототипу, но не экземпляру ";
+
+  static method = function (obj) {
+    console.log(
+      "Статический метод, доступный только прототипу, но не экземпляру"
+    );
+    console.log("obj", obj);
+  };
+
+  #privatProperty = "Examlpe of Privat Property";
+  // privatProperty не доступно на экземпляре класса
+
+  constructor({ brand, model, price } = {}) {
+    console.log("constructor");
+    console.log(this);
+
+    this.brand = brand;
+    this.model = model;
+    this.price = price;
+  }
+  changePrice(newPrice) {
+    this.price = newPrice;
+  }
+  updateModel(newModel) {
+    this.model = newModel;
+  }
+
+  getBrand() {
+    return this.brand;
+  }
+  setBrand(newBrand) {
+    this.brand = newBrand;
+  }
+}
+console.dir(Car);
+
+const myCar1 = new Car({ brand: "vw", model: "passat", price: 18000 });
+console.log("myCar1", myCar1);
+
+const myCar2 = new Car({ brand: "opel", model: "corsa", price: 7000 });
+console.log("myCar2", myCar2);
+
+// myCar1.changePrice(20000);
+// console.log("myCar1", myCar1);
+
+Car.method(myCar1);
+console.log(Car.value);
+
+console.log(myCar1.getBrand());
+
+myCar1.setBrand("Volvo");
+console.log(myCar1.getBrand());
+
+//
+
+////
+////
+////
+
+// Наследование
+
+// https://youtu.be/Z-w9kLvu18A?t=2323
