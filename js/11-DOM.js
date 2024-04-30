@@ -85,12 +85,32 @@ const saveBtn = document.querySelector('button[data-action="save"]');
 //
 
 const article = document.querySelector(".article");
-console.log("🚀 ~ article:", article.innerHTML);
+// console.log("🚀 ~ article:", article.innerHTML);
 
 const title = document.querySelector(".article .title");
-console.log("🚀 ~ title:", title.innerHTML);
+// console.log("🚀 ~ title:", title.innerHTML);
 
 title.innerHTML = 'New <span class="accent">title</span>';
 
 //
 //
+
+// Создает и добавляет разметку
+// https://youtu.be/w9gWey_cFgo?t=4437
+
+const navItemEl = document.createElement("li");
+navItemEl.classList.add("some-class");
+console.log("🚀 ~ navItemEl:", navItemEl);
+
+const navLinkEl = document.createElement("a");
+navLinkEl.classList.add("some-other-class");
+navLinkEl.textContent = "Random text";
+navLinkEl.href = "/some-link";
+console.log("🚀 ~ navLinkEl:", navLinkEl);
+
+navItemEl.appendChild(navLinkEl);
+
+console.log("🚀 ~ navItemEl:", navItemEl);
+
+const navEl = document.querySelector(".text");
+navEl.appendChild(navItemEl);
