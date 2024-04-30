@@ -42,10 +42,55 @@
 
 //
 //
-//
-//
+
+// const link = document.querySelector(".myLink");
+// console.log(link.classList);
+
+// const hasActiveClass = link.classList.contains("active");
+// console.log(`hasActiveClass - ${hasActiveClass}`);
+
+// link.classList.add("special");
+// console.log(link.classList);
+
+// link.classList.remove("is-active");
+// console.log(link.classList);
+
+// link.classList.toggle("is-active");
+// console.log(link.classList);
+
+// link.classList.replace("special", "regular");
+// console.log(link.classList);
+
 //
 //
 
-const link = document.querySelector(".link");
-console.log(link.classList);
+const button = document.querySelector(".btn");
+// console.log(button.attributes);
+
+button.style.backgroundColor = "teal";
+button.style.fontSize = "24px";
+button.style.textAlign = "center";
+
+// console.log(button.style); // inline styles object
+
+//
+//
+
+const saveBtn = document.querySelector('button[data-action="save"]');
+// console.log(saveBtn);
+// console.log(saveBtn.dataset);
+// console.log(saveBtn.dataset.action);
+
+//
+//
+
+const article = document.querySelector(".article");
+console.log("🚀 ~ article:", article.innerHTML);
+
+const title = document.querySelector(".article .title");
+console.log("🚀 ~ title:", title.innerHTML);
+
+title.innerHTML = 'New <span class="accent">title</span>';
+
+//
+//
