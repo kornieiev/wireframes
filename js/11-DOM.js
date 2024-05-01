@@ -1,3 +1,7 @@
+console.log("DOM");
+
+const test = document.querySelector(".test");
+console.log("test", test);
 //
 // Навігація по DOM
 
@@ -67,9 +71,9 @@
 const button = document.querySelector(".btn");
 // console.log(button.attributes);
 
-button.style.backgroundColor = "teal";
-button.style.fontSize = "24px";
-button.style.textAlign = "center";
+// button.style.backgroundColor = "teal";
+// button.style.fontSize = "24px";
+// button.style.textAlign = "center";
 
 // console.log(button.style); // inline styles object
 
