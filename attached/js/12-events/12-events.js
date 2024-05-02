@@ -172,3 +172,20 @@ removeFocus.addEventListener("click", () => {
 //// ========== РЕПЕТА ========== \\\\
 
 // Событие сабмита формы
+
+const submitForm = document.querySelector(".submit-form");
+console.log("submitForm", submitForm);
+
+submitForm.addEventListener("submit", handleFormSubmit);
+
+function handleFormSubmit(evt) {
+  evt.preventDefault();
+  console.log("evt t", evt.target);
+  console.log("evt el", evt);
+
+  const form = evt.target;
+  console.log("form", form.elements);
+}
+
+// stoped here:
+// https://youtu.be/iAAtYwGp_II?t=1443
