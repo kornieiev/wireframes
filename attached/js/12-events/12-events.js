@@ -100,3 +100,65 @@ function handleSubmit(event) {
   console.log(`Login: ${login}, Password: ${password}`);
   form.reset();
 }
+
+// Подія submit
+//
+
+////
+
+//
+// Подія change
+
+const textOutput = document.querySelector(".text-output");
+const valueOutput = document.querySelector(".value-output");
+const selector = document.querySelector(".pizza-select");
+
+selector.addEventListener("change", handleChange);
+
+function handleChange(evt) {
+  const idx = evt.target.selectedIndex;
+  valueOutput.textContent = evt.target.value;
+  textOutput.textContent = evt.target.options[idx].text;
+}
+
+// Подія change
+//
+
+////
+
+//
+// Подія input
+
+const textInput = document.querySelector(".text-input");
+const output = document.querySelector(".output");
+
+textInput.addEventListener("input", inputChange);
+
+function inputChange(evt) {
+  output.textContent = evt.currentTarget.value;
+}
+
+// Подія input
+//
+
+////
+
+//
+// Подія focus і blur
+
+const addFocus = document.querySelector('[data-action="add"]');
+const removeFocus = document.querySelector('[data-action="remove"]');
+const textInputFocus = document.querySelector(".text-input-focus");
+
+addFocus.addEventListener("click", () => {
+  textInputFocus.focus();
+  textInputFocus.value = "This input has focus";
+});
+
+removeFocus.addEventListener("click", () => {
+  textInputFocus.blur();
+  textInputFocus.value = "";
+});
+
+// Подія focus і blur
+//
