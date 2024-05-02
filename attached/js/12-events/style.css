@@ -7,3 +7,10 @@ body {
   /* padding: 1rem; */
   /* text-align: center; */
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 150px;
+  gap: 5px;
+}

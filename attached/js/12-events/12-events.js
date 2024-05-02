@@ -78,3 +78,25 @@ eventBtn.addEventListener("click", event => {
 
 //
 // Подія submit
+
+const registerForm = document.querySelector(".form");
+
+registerForm.addEventListener("submit", handleSubmit);
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  console.log("event", event);
+
+  const form = event.target;
+  console.log("form", form);
+
+  const login = form.elements.login.value;
+  const password = form.elements.password.value;
+
+  if (login === "" || password === "") {
+    return console.log("Не введены все нужные данные");
+  }
+  console.log(`Login: ${login}, Password: ${password}`);
+  form.reset();
+}
