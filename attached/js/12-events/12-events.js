@@ -174,18 +174,27 @@ removeFocus.addEventListener("click", () => {
 // Событие сабмита формы
 
 const submitForm = document.querySelector(".submit-form");
-console.log("submitForm", submitForm);
 
 submitForm.addEventListener("submit", handleFormSubmit);
 
 function handleFormSubmit(evt) {
   evt.preventDefault();
-  console.log("evt t", evt.target);
-  console.log("evt el", evt);
+  // console.log("evt", evt);
 
-  const form = evt.target;
-  console.log("form", form.elements);
+  // console.log("evt.target", evt.target);
+  // console.dir("evt.target", evt.target);
+
+  // console.log("evt.currentTarget", evt.currentTarget);
+  // console.dir("evt.currentTarget", evt.currentTarget);
+
+  console.log("evt.currentTarget.elements", evt.currentTarget.elements); // !!! даст доступ к массиву вложенных элементов в форме. Где потом можно посмотреть value эллемента
+
+  const form = evt.currentTarget;
+
+  const email = form.elements.email.value;
+  const password = form.elements.password.value;
+  const subscription = form.elements.subscription.value;
+  // console.log("email", email);
+  // console.log("password", password);
+  // console.log("subscription", subscription);
 }
-
-// stoped here:
-// https://youtu.be/iAAtYwGp_II?t=1443
