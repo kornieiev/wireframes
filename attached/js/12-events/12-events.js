@@ -192,7 +192,12 @@ function handleFormSubmit(evt) {
   console.log("password", password); // qweqwe
   console.log("subscription", subscription); //pro
 }
+// Событие сабмита формы
+//
 
+////
+
+//
 // Событие сабмита формы с использованием formData
 
 const formDataForm = document.querySelector(".submit-form");
@@ -215,3 +220,26 @@ function onFormSubmit(evt) {
   });
   console.log("data", data);
 }
+
+// Событие сабмита формы с использованием formData
+//
+
+////
+
+//
+// Disabled button when input:checkbox - !checked
+
+const refs = {
+  checkboxInput: document.querySelector(".checkbox-input"),
+  checkboxBtn: document.querySelector(".checkbox-btn"),
+  btnStatus: document.querySelector(".btn-status")
+};
+
+refs.checkboxInput.addEventListener("change", evt => {
+  refs.checkboxBtn.disabled;
+  evt.currentTarget.checked
+    ? (refs.btnStatus.textContent = "Enabled") &&
+      (refs.checkboxBtn.disabled = false)
+    : (refs.btnStatus.textContent = "Disabled") &&
+      (refs.checkboxBtn.disabled = true);
+});
