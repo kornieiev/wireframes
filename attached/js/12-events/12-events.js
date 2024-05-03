@@ -179,22 +179,39 @@ submitForm.addEventListener("submit", handleFormSubmit);
 
 function handleFormSubmit(evt) {
   evt.preventDefault();
-  // console.log("evt", evt);
-
-  // console.log("evt.target", evt.target);
-  // console.dir("evt.target", evt.target);
-
-  // console.log("evt.currentTarget", evt.currentTarget);
-  // console.dir("evt.currentTarget", evt.currentTarget);
 
   console.log("evt.currentTarget.elements", evt.currentTarget.elements); // !!! даст доступ к массиву вложенных элементов в форме. Где потом можно посмотреть value эллемента
 
-  const form = evt.currentTarget;
+  const form = evt.currentTarget.elements;
 
-  const email = form.elements.email.value;
-  const password = form.elements.password.value;
-  const subscription = form.elements.subscription.value;
-  // console.log("email", email);
-  // console.log("password", password);
-  // console.log("subscription", subscription);
+  const email = form.email.value;
+  const password = form.password.value;
+  const subscription = form.subscription.value;
+
+  console.log("email", email); // qwe@qwe.qwe
+  console.log("password", password); // qweqwe
+  console.log("subscription", subscription); //pro
+}
+
+// Событие сабмита формы с использованием formData
+
+const formDataForm = document.querySelector(".submit-form");
+
+formDataForm.addEventListener("submit", onFormSubmit);
+
+let data = [];
+
+function onFormSubmit(evt) {
+  evt.preventDefault();
+
+  const formData = new FormData(evt.currentTarget);
+
+  console.log("formData", formData); // пустой объект
+
+  formData.forEach((value, name) => {
+    console.log("value:", value);
+    console.log("name:", name);
+    data.push({ name: value });
+  });
+  console.log("data", data);
 }
