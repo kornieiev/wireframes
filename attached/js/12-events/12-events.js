@@ -243,3 +243,48 @@ refs.checkboxInput.addEventListener("change", evt => {
     : (refs.btnStatus.textContent = "Disabled") &&
       (refs.checkboxBtn.disabled = true);
 });
+
+// Disabled button when input:checkbox - !checked
+//
+
+////
+
+//
+// События клавиатуры
+
+const refs2 = {
+  clearBtn: document.querySelector(".js-clear"),
+  output: document.querySelector(".js-output")
+};
+// console.log("first", refs2.output.currentTarget);
+
+document.addEventListener("keydown", evt => {
+  console.log("evt", evt);
+  console.log("evt", evt.code);
+  console.log("evt", evt.key);
+  console.log("evt", evt.key);
+
+  refs2.output.textContent += evt.key;
+});
+
+refs2.clearBtn.addEventListener("click", evt => {
+  refs2.output.textContent = "";
+});
+
+// События клавиатуры
+//
+
+////
+
+//
+// Событие мышки - mouseenter / mouseleave
+
+const outer = document.querySelector(".outcide");
+const inner = document.querySelector(".incide");
+
+outer.addEventListener("mouseenter", () => {
+  outer.classList.add("active-outer");
+});
+outer.addEventListener("mouseleave", () => {
+  outer.classList.remove("active-outer");
+});
