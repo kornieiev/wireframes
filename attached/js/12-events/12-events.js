@@ -259,10 +259,10 @@ const refs2 = {
 // console.log("first", refs2.output.currentTarget);
 
 document.addEventListener("keydown", evt => {
-  console.log("evt", evt);
-  console.log("evt", evt.code);
-  console.log("evt", evt.key);
-  console.log("evt", evt.key);
+  // console.log("evt", evt);
+  // console.log("evt", evt.code);
+  // console.log("evt", evt.key);
+  // console.log("evt", evt.key);
 
   refs2.output.textContent += evt.key;
 });
@@ -277,7 +277,7 @@ refs2.clearBtn.addEventListener("click", evt => {
 ////
 
 //
-// Событие мышки - mouseenter / mouseleave
+// Событие мышки - mouseenter / mouseleave / mousemove
 
 const outer = document.querySelector(".outcide");
 const inner = document.querySelector(".incide");
@@ -288,3 +288,44 @@ outer.addEventListener("mouseenter", () => {
 outer.addEventListener("mouseleave", () => {
   outer.classList.remove("active-outer");
 });
+
+outer.addEventListener("mousemove", evt => {
+  // console.log(evt.screenX, evt.screenY, evt.clientX, evt.clientY);
+});
+
+//
+// Событие мышки - mouseenter / mouseleave / mousemove
+
+////
+
+//
+// Модальное окно
+
+const refs3 = {
+  openModalBtn: document.querySelector('[data-action="open-modal"]'),
+  closeModalBtn: document.querySelector('[data-action="close-modal"]'),
+  backdrop: document.querySelector(".js-backdrop")
+};
+
+refs3.openModalBtn.addEventListener("click", onModalOpen);
+refs3.closeModalBtn.addEventListener("click", onModalClose);
+refs3.backdrop.addEventListener("click", onBackdropClose);
+
+function onModalOpen() {
+  window.addEventListener("keydown", onEscPress);
+  document.body.classList.add("show-modal");
+}
+function onModalClose() {
+  window.removeEventListener("keydown", onEscPress);
+  document.body.classList.remove("show-modal");
+}
+function onBackdropClose(evt) {
+  if (evt.target.classList.contains("backdrop")) {
+    onModalClose();
+  }
+}
+function onEscPress(evt) {
+  if (evt.code === "Escape") {
+    onModalClose();
+  }
+}
