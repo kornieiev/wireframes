@@ -1,0 +1,13 @@
+ul,
+li {
+  list-style: none;
+}
+
+.tags {
+  display: flex;
+  gap: 5px;
+}
+
+.active {
+  background-color: blue;
+}
