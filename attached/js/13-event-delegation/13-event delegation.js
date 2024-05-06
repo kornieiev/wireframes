@@ -29,7 +29,7 @@ container.addEventListener("click", evt => {
 ////
 
 //
-// Патерн отслеживание кликов по элементам списка
+// Патерн отслеживание кликов по элементам списка - фильтр
 // https://youtu.be/vnSnT-Uo8JI?t=1542
 
 const tags = document.querySelector(".js-tags");
@@ -68,5 +68,35 @@ function onTagsContainerClick(evt) {
   }
 }
 
-// Патерн отслеживание кликов по элементам списка
+// Патерн отслеживание кликов по элементам списка - фильтр
 //
+
+////
+
+//
+// Патерн отслеживание кликов по элементам списка - фильтр - 2
+// https://youtu.be/vnSnT-Uo8JI?t=2598
+
+const tags2 = document.querySelector(".js-tags2");
+
+tags2.addEventListener("click", onTagsClick);
+
+const selectTegs = new Set();
+
+function onTagsClick(evt) {
+  if (evt.target.nodeName !== "BUTTON") {
+    return;
+  }
+  evt.target.classList.toggle("active");
+
+  // selectTegs.add(evt.target.dataset.value2);
+  // console.log("dataset:", evt.target.dataset.value2);
+
+  if (selectTegs.has(evt.target.dataset.value2)) {
+    // проверит есть ли в Set искомое значение
+    selectTegs.delete(evt.target.dataset.value2); // удалит из Set значение
+  } else {
+    selectTegs.add(evt.target.dataset.value2); // добавит в Set значение
+  }
+  console.log("selectTegs:", selectTegs);
+}
