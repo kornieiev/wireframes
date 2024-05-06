@@ -100,3 +100,51 @@ function onTagsClick(evt) {
   }
   console.log("selectTegs:", selectTegs);
 }
+
+// Патерн отслеживание кликов по элементам списка - фильтр - 2
+//
+
+////
+
+//
+// Мастерская колорпикер
+// https://youtu.be/vnSnT-Uo8JI?t=3621
+
+const colors = [
+  { hex: "#955014", rgb: "149,80,20" },
+  { hex: "#3a7d44", rgb: "58,125,68" },
+  { hex: "#b18ab1", rgb: "177,138,177" },
+  { hex: "#56b8de", rgb: "86,184,222" },
+  { hex: "#ea9292", rgb: "234,146,146" },
+  { hex: "#f7c330", rgb: "247,195,48" },
+  { hex: "#a8e6cf", rgb: "168,230,207" },
+  { hex: "#d3b683", rgb: "211,182,131" },
+  { hex: "#7d849d", rgb: "125,132,157" },
+  { hex: "#4b4e6d", rgb: "75,78,109" }
+];
+
+const palette = document.querySelector(".js-palette");
+
+const markup = makeMarkup(colors);
+palette.insertAdjacentHTML("beforeend", markup);
+
+function makeMarkup(colors) {
+  return colors
+    .map(({ hex, rgb }) => {
+      return `
+    <div class="color-card">
+      <div
+        class="color-swatch"
+        data-hex="${hex}"
+        data-rgb="${rgb}"
+        style="background-color: ${hex}"
+      ></div>
+      <div class="color-meta">
+        <p>HEX: ${hex}</p>
+        <p>RGB: ${rgb}</p>
+      </div>
+    </div>
+    `;
+    })
+    .join("");
+}
