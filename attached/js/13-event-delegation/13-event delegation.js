@@ -156,17 +156,26 @@ function onContainerClick(e) {
     return;
   }
 
+  removeActive();
+  addClassOnCard(e);
+  setBgColor(e.target.dataset.hex);
+}
+
+function removeActive() {
   const currentActiveCard = document.querySelector(".color-card.active-card");
 
-  console.log("currentActiveCard", currentActiveCard);
   if (currentActiveCard) {
     currentActiveCard.classList.remove("active-card");
   }
-  const chosedCard = e.target.closest(".color-card");
-  console.log("chosedCard", chosedCard);
-  chosedCard.classList.add("active-card");
+}
 
-  document.querySelector("body").style.backgroundColor = e.target.dataset.hex;
+function setBgColor(color) {
+  document.querySelector("body").style.backgroundColor = color;
+}
+
+function addClassOnCard(e) {
+  const chosedCard = e.target.closest(".color-card");
+  chosedCard.classList.add("active-card");
 }
 
 // Мастерская колорпикер
