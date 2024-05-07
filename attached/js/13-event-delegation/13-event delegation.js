@@ -140,11 +140,49 @@ function makeMarkup(colors) {
         style="background-color: ${hex}"
       ></div>
       <div class="color-meta">
-        <p>HEX: ${hex}</p>
-        <p>RGB: ${rgb}</p>
+        <p class="color-name">HEX: ${hex}</p>
+        <p class="color-name">RGB: ${rgb}</p>
       </div>
     </div>
     `;
     })
     .join("");
 }
+
+palette.addEventListener("click", onContainerClick);
+
+function onContainerClick(e) {
+  if (!e.target.classList.contains("color-swatch")) {
+    return;
+  }
+
+  const currentActiveCard = document.querySelector(".color-card.active-card");
+
+  console.log("currentActiveCard", currentActiveCard);
+  if (currentActiveCard) {
+    currentActiveCard.classList.remove("active-card");
+  }
+  const chosedCard = e.target.closest(".color-card");
+  console.log("chosedCard", chosedCard);
+  chosedCard.classList.add("active-card");
+
+  document.querySelector("body").style.backgroundColor = e.target.dataset.hex;
+}
+
+// Мастерская колорпикер
+//
+
+////
+
+//
+// Closest()
+// https://youtu.be/vnSnT-Uo8JI?t=4761
+
+const one = document.querySelector(".one");
+
+one.addEventListener("click", evt => {
+  console.log("evt", evt.target.closest(".one"));
+});
+
+// Closest()
+//
