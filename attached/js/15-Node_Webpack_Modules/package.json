@@ -1,0 +1,15 @@
+{
+  "name": "15-node_webpack_modules",
+  "version": "1.0.0",
+  "description": "some text",
+  "main": "15-Node_Webpack_Modules.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "kornieiev"
+  },
+  "author": "Dima",
+  "license": "ISC"
+}

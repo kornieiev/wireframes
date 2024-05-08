@@ -1,0 +1,41 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  border: 1px solid gray;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: lightseagreen;
+  margin: 50px;
+}
+
+.input {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: calc(100% - 8%);
+  padding: 10px;
+  font-size: 13px;
+  border: none;
+
+  border-radius: 5px;
+}
+
+.submit-btn {
+  margin-top: 10px;
+  padding: 8px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+}
+
+.label {
+  font-size: 16px;
+}
+
+.error {
+  background-color: red;
+}
+
+.ok {
+  background-color: green;
+}

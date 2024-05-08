@@ -2,7 +2,7 @@
 // Тест подключение Lodash
 
 const result = _.add(2, 3);
-// console.log("result", result); // result 5
+console.log("result", result); // result 5
 
 // Тест подключение Lodash
 //
