@@ -12,18 +12,39 @@
 
     <h2>16-JSON-LocalStorage</h2>
 
-    <!--  -->
-    <!--  -->
-
     <br />
     <hr />
     <hr />
     <br />
 
     <!--  -->
+    <!-- Форма отзывов -->
 
-    <!-- Здесь не имеющий отнощения к теме -->
+    <h4>Форма отзывов + запись в LocalStorage:</h4>
 
+    <form class="form js-form">
+      <label class="form-label"
+        >Имя
+        <input
+          type="text"
+          name="name"
+          placeholder="Введите ваше имя"
+          value="Анонимус"
+        />
+      </label>
+      <label class="form-label">
+        Сообщение
+        <textarea
+          name="textarea"
+          rows="5"
+          cols="33"
+          placeholder="Введите текст"
+        ></textarea>
+      </label>
+      <button class="form-btn" type="submit">Оставить сообщение</button>
+    </form>
+
+    <!-- Форма отзывов -->
     <!--  -->
 
     <script type="module" src="./16-JSON-LocalStorage.js"></script>
