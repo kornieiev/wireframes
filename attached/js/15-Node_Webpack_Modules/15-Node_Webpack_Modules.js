@@ -1,5 +1,5 @@
 //
-// Тест
+// Здесь не имеющий отнощения к теме
 
 const form = document.querySelector(".form");
 
@@ -25,8 +25,4 @@ function onSubmitClick(evt) {
   alert(`Привіт ${loginValue}! Вітаю тебе у системі!`);
 }
 
-// Тест
-
-////
-
-//
+// Здесь не имеющий отнощения к теме
