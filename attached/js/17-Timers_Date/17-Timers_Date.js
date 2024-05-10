@@ -29,9 +29,19 @@
 // https://youtu.be/x-Hm2lZcOsM?t=3007
 
 const refs = {
-  notification: document.querySelector("js-alert")
+  notification: document.querySelector(".js-alert")
 };
 
-refs.notification.addEventListener("click", onNotificationClick);
+document.addEventListener("DOMContentLoaded", function () {
+  refs.notification.addEventListener("click", () => {
+    refs.notification.classList.add("animate-out");
+    if (refs.notification.classList.contains("animate-out")) {
+      clearTimeout(timeout);
+    }
+  });
+});
 
-function onNotificationClick(evt) {}
+const timeout = setTimeout(() => {
+  console.log("Срабатывание setTimeout");
+  refs.notification.classList.add("animate-out");
+}, 3000);

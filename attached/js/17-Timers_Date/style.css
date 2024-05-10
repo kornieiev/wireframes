@@ -1,19 +1,19 @@
-.form {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-}
+.alert {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
 
-.form-label {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  margin-bottom: 20px;
-}
+  margin: 0;
 
-.form-btn {
-  border: none;
-  padding: 10px;
+  display: inline-block;
+  padding: 20px 30px;
   background-color: lightseagreen;
   border-radius: 5px;
+  border: 1px solid green;
+
+  transition: transform 1.5s ease;
+}
+
+.animate-out {
+  transform: translateX(-300%);
 }
