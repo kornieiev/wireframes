@@ -85,6 +85,10 @@ const parsedDataFromLS = JSON.parse(jsonFromLS);
 // Форма отзывов
 // https://youtu.be/w8vKiU0Hhts?t=920
 
+const STORAGE_KEY = "textarea";
+
+const formData = {};
+
 const refs = {
   form: document.querySelector(".js-form"),
   textarea: document.querySelector(".js-form textarea")
@@ -93,13 +97,29 @@ const refs = {
 refs.form.addEventListener("submit", onSubmitClick);
 refs.textarea.addEventListener("input", onTextareaInput);
 
-const textFromLS = localStorage.getItem("textarea");
-refs.textarea.value = textFromLS;
+refs.form.addEventListener("input", evt => {
+  const name = evt.target.name;
+  const value = evt.target.value;
+
+  console.log(name, value);
+
+  formData[name] = value;
+  console.log("🚀 ~ formData:", formData);
+});
+
+function populateLSData() {
+  const textFromLS = localStorage.getItem(STORAGE_KEY);
+  if (textFromLS) {
+    refs.textarea.value = textFromLS;
+  }
+}
+
+populateLSData();
 
 function onTextareaInput(evt) {
   const text = evt.target.value;
 
-  localStorage.setItem("textarea", text);
+  localStorage.setItem(STORAGE_KEY, text);
 }
 
 function onSubmitClick(evt) {
@@ -109,5 +129,5 @@ function onSubmitClick(evt) {
   const message = evt.target.elements.textarea.value;
 
   refs.form.reset();
-  localStorage.removeItem("textarea");
+  localStorage.removeItem(STORAGE_KEY);
 }
