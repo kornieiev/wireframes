@@ -1,0 +1,19 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+}
+
+.form-label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.form-btn {
+  border: none;
+  padding: 10px;
+  background-color: lightseagreen;
+  border-radius: 5px;
+}
