@@ -45,3 +45,12 @@ const timeout = setTimeout(() => {
   console.log("Срабатывание setTimeout");
   refs.notification.classList.add("animate-out");
 }, 3000);
+
+// Пример - Оповещение
+//
+
+////
+////
+
+//
+// Промпт Подписки
