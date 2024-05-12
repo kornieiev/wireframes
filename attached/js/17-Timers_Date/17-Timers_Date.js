@@ -54,3 +54,40 @@ const timeout = setTimeout(() => {
 
 //
 // Промпт Подписки
+// https://youtu.be/x-Hm2lZcOsM?t=3668
+
+//
+
+// return masked string
+function maskify(cc) {
+  const newString = cc.split("");
+  console.log("newString.length", newString.length);
+
+  if (newString.length <= 4) {
+    console.log("RESULT", cc);
+    return cc;
+  }
+
+  const length = newString.length - 4;
+  console.log("length", length);
+
+  const notHide = newString.splice(length);
+  console.log("notHide", notHide);
+
+  let string = "";
+
+  for (let i = 0; i < length; i++) {
+    string += "#";
+  }
+
+  console.log("string", string);
+
+  // return string + notHide.join("");
+  console.log("RESULT:", string + notHide.join(""));
+}
+
+maskify("4556364607935616");
+
+// maskify("4556364607935616");
+// maskify("1");
+// maskify("11111");
