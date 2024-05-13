@@ -61,18 +61,14 @@ const timeout = setTimeout(() => {
 // return masked string
 function maskify(cc) {
   const newString = cc.split("");
-  console.log("newString.length", newString.length);
 
   if (newString.length <= 4) {
-    console.log("RESULT", cc);
     return cc;
   }
 
   const length = newString.length - 4;
-  console.log("length", length);
 
   const notHide = newString.splice(length);
-  console.log("notHide", notHide);
 
   let string = "";
 
@@ -80,10 +76,7 @@ function maskify(cc) {
     string += "#";
   }
 
-  console.log("string", string);
-
-  // return string + notHide.join("");
-  console.log("RESULT:", string + notHide.join(""));
+  return string + notHide.join("");
 }
 
 maskify("4556364607935616");
@@ -91,3 +84,16 @@ maskify("4556364607935616");
 // maskify("4556364607935616");
 // maskify("1");
 // maskify("11111");
+
+function maskify2(cc) {
+  if (cc.length > 4) {
+    const cadenaVisible = cc.slice(cc.length - 4, cc.length);
+    const caracteresQueOcultar = cc.slice(0, cc.length - 4);
+    const enmascaramiento = "#".repeat(caracteresQueOcultar.length);
+    console.log(enmascaramiento + cadenaVisible);
+  } else {
+    console.log(cc);
+  }
+}
+
+maskify2("4556364607935616");
