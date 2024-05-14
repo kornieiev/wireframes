@@ -1,8 +1,7 @@
-import BSN from "bootstrap.native";
+import BSN from 'bootstrap.native';
+const modal = new BSN.Modal('#myModal');
 
-const modal = new BSN.Modal("#myModal");
-
-console.log("modal", modal);
+console.log('modal', modal);
 
 //
 // setInterval - clearInterval
@@ -35,13 +34,13 @@ console.log("modal", modal);
 // https://youtu.be/x-Hm2lZcOsM?t=3007
 
 const refs = {
-  notification: document.querySelector(".js-alert")
+  notification: document.querySelector('.js-alert'),
 };
 
-document.addEventListener("DOMContentLoaded", function () {
-  refs.notification.addEventListener("click", () => {
-    refs.notification.classList.add("animate-out");
-    if (refs.notification.classList.contains("animate-out")) {
+document.addEventListener('DOMContentLoaded', function () {
+  refs.notification.addEventListener('click', () => {
+    refs.notification.classList.add('animate-out');
+    if (refs.notification.classList.contains('animate-out')) {
       clearTimeout(timeout);
     }
   });
@@ -49,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 const timeout = setTimeout(() => {
   // console.log("Срабатывание setTimeout");
-  refs.notification.classList.add("animate-out");
+  refs.notification.classList.add('animate-out');
 }, 3000);
 
 // Пример - Оповещение
@@ -70,10 +69,10 @@ let hasSubscribed = false;
 
 const intervalId = setInterval(() => {
   if (promptCounter === MAX_PROMPT_ATTEMPTS || hasSubscribed) {
-    console.log("нужно остановить интервал");
+    console.log('нужно остановить интервал');
     clearInterval(intervalId);
     return;
   }
   promptCounter += 1;
-  console.log("Подпишись на рассылку! - " + Date.now());
+  console.log('Подпишись на рассылку! - ' + Date.now());
 }, PROMPT_DELAY);
