@@ -196,3 +196,32 @@ function moveZeros(arr) {
 }
 
 console.log(moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])); // [1, 2, 1, 1, 3, 1, 0, 0, 0, 0];
+
+// =================================================================
+
+// Return masked string
+function maskify(cc) {
+  const newString = cc.split("");
+
+  if (newString.length <= 4) {
+    return cc;
+  }
+
+  const length = newString.length - 4;
+
+  const notHide = newString.splice(length);
+
+  let string = "";
+
+  for (let i = 0; i < length; i++) {
+    string += "#";
+  }
+
+  return string + notHide.join("");
+}
+
+maskify("4556364607935616");
+
+// maskify("4556364607935616");
+// maskify("1");
+// maskify("11111");

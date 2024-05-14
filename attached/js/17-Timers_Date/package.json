@@ -1,0 +1,16 @@
+{
+  "name": "17-timers_date",
+  "version": "1.0.0",
+  "description": "",
+  "main": "17-Timers_Date.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap.native": "^5.0.12",
+    "lodash.throttle": "^4.1.1"
+  }
+}

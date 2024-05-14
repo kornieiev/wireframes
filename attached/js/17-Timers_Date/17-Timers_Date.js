@@ -1,3 +1,9 @@
+import BSN from "bootstrap.native";
+
+const modal = new BSN.Modal("#myModal");
+
+console.log("modal", modal);
+
 //
 // setInterval - clearInterval
 
@@ -42,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 const timeout = setTimeout(() => {
-  console.log("Срабатывание setTimeout");
+  // console.log("Срабатывание setTimeout");
   refs.notification.classList.add("animate-out");
 }, 3000);
 
@@ -56,44 +62,18 @@ const timeout = setTimeout(() => {
 // Промпт Подписки
 // https://youtu.be/x-Hm2lZcOsM?t=3668
 
-//
+const PROMPT_DELAY = 1000;
+const MAX_PROMPT_ATTEMPTS = 3;
 
-// return masked string
-function maskify(cc) {
-  const newString = cc.split("");
+let promptCounter = 0;
+let hasSubscribed = false;
 
-  if (newString.length <= 4) {
-    return cc;
+const intervalId = setInterval(() => {
+  if (promptCounter === MAX_PROMPT_ATTEMPTS || hasSubscribed) {
+    console.log("нужно остановить интервал");
+    clearInterval(intervalId);
+    return;
   }
-
-  const length = newString.length - 4;
-
-  const notHide = newString.splice(length);
-
-  let string = "";
-
-  for (let i = 0; i < length; i++) {
-    string += "#";
-  }
-
-  return string + notHide.join("");
-}
-
-maskify("4556364607935616");
-
-// maskify("4556364607935616");
-// maskify("1");
-// maskify("11111");
-
-function maskify2(cc) {
-  if (cc.length > 4) {
-    const cadenaVisible = cc.slice(cc.length - 4, cc.length);
-    const caracteresQueOcultar = cc.slice(0, cc.length - 4);
-    const enmascaramiento = "#".repeat(caracteresQueOcultar.length);
-    console.log(enmascaramiento + cadenaVisible);
-  } else {
-    console.log(cc);
-  }
-}
-
-maskify2("4556364607935616");
+  promptCounter += 1;
+  console.log("Подпишись на рассылку! - " + Date.now());
+}, PROMPT_DELAY);
