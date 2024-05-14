@@ -151,18 +151,48 @@ function likes(names) {
 // Mumbling
 
 function accum(s) {
-  const arr = s.split("");
-  let str = [];
-  arr.map(el => {
-    console.log("arr.indexOf(el)", arr.indexOf(el));
-    const s = el.repeat(arr.indexOf(el) + 1);
-    str.capitalize().push(s);
-  });
-  return str.join("-");
+  // const arr = s.split("");
+  // let str = [];
+
+  // for (let i = 0; i < arr.length; i++) {
+  //   console.log("arr[i]", arr[i]);
+  //   const s = arr[i].toUpperCase() + arr[i].toLowerCase().repeat(i);
+  //   str.push(s);
+  // }
+  // return str.join("-");
+
+  return s
+    .split("")
+    .map((s, i) => {
+      return s.toUpperCase() + s.toLowerCase().repeat(i);
+    })
+    .join("-");
 }
 
-console.log(accum("ZpglnRxqenU")); // "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu"
-// accum("NyffsGeyylB"); // "N-Yy-Fff-Ffff-Sssss-Gggggg-Eeeeeee-Yyyyyyyy-Yyyyyyyyy-Llllllllll-Bbbbbbbbbbb"
-// accum("MjtkuBovqrU"); // "M-Jj-Ttt-Kkkk-Uuuuu-Bbbbbb-Ooooooo-Vvvvvvvv-Qqqqqqqqq-Rrrrrrrrrr-Uuuuuuuuuuu"
-// accum("EvidjUnokmM"); // "E-Vv-Iii-Dddd-Jjjjj-Uuuuuu-Nnnnnnn-Oooooooo-Kkkkkkkkk-Mmmmmmmmmm-Mmmmmmmmmmm"
-// accum("HbideVbxncC"); // "H-Bb-Iii-Dddd-Eeeee-Vvvvvv-Bbbbbbb-Xxxxxxxx-Nnnnnnnnn-Cccccccccc-Ccccccccccc"
+// console.log(accum("ZpglnRxqenU")); // "Z-Pp-Ggg-Llll-Nnnnn-Rrrrrr-Xxxxxxx-Qqqqqqqq-Eeeeeeeee-Nnnnnnnnnn-Uuuuuuuuuuu"
+// console.log(accum("NyffsGeyylB")); // "N-Yy-Fff-Ffff-Sssss-Gggggg-Eeeeeee-Yyyyyyyy-Yyyyyyyyy-Llllllllll-Bbbbbbbbbbb"
+// console.log(accum("MjtkuBovqrU")); // "M-Jj-Ttt-Kkkk-Uuuuu-Bbbbbb-Ooooooo-Vvvvvvvv-Qqqqqqqqq-Rrrrrrrrrr-Uuuuuuuuuuu"
+// console.log(accum("EvidjUnokmM")); // "E-Vv-Iii-Dddd-Jjjjj-Uuuuuu-Nnnnnnn-Oooooooo-Kkkkkkkkk-Mmmmmmmmmm-Mmmmmmmmmmm"
+// console.log(accum("HbideVbxncC")); // "H-Bb-Iii-Dddd-Eeeee-Vvvvvv-Bbbbbbb-Xxxxxxxx-Nnnnnnnnn-Cccccccccc-Ccccccccccc"
+
+// =================================================================
+
+// Moving Zeros To The End
+
+function moveZeros(arr) {
+  const newArr = [];
+  const newArr0 = [];
+
+  // arr.map((el) => {
+  //   if (el !== 0) {
+  //     newArr.push(el);
+  //   } else {
+  //     newArr0.push(el);
+  //   }
+  // });
+
+  arr.map(el => (el !== 0 ? newArr.push(el) : newArr0.push(el)));
+  return [...newArr, ...newArr0];
+}
+
+console.log(moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])); // [1, 2, 1, 1, 3, 1, 0, 0, 0, 0];
