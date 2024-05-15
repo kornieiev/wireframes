@@ -225,3 +225,29 @@ maskify("4556364607935616");
 // maskify("4556364607935616");
 // maskify("1");
 // maskify("11111");
+
+// ============================================================
+
+function evenOrOdd(number) {
+  return number % 2 === 0 ? "Even" : "Odd";
+}
+
+console.log(evenOrOdd(2)); //'Even'
+
+// ============================================================
+
+function solution(number) {
+  let sum = 0;
+
+  if (number < 0) {
+    return sum;
+  }
+  for (let i = 1; i < number; i++) {
+    if (i % 3 === 0 || i % 5 === 0) {
+      sum += i;
+    }
+  }
+  return sum;
+}
+
+console.log(solution(10)); // 3, 5, 6, 9 // 23
