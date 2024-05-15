@@ -122,36 +122,179 @@ const date2 = Date.now();
 
 // Таймер:
 
-const startBtn = document.querySelector('.js-startBtn');
-const stopBtn = document.querySelector('.js-stopBtn');
-
-startBtn.addEventListener('click', () => {});
-
-const timer = {
-  start() {
-    const startTime = Date.now();
-
-    setInterval(() => {
-      const currentTime = Date.now();
-      const deltaTime = currentTime - startTime;
-      const timeComponents = getTimeComponents(deltaTime);
-      console.log('timeComponents:', timeComponents);
-    }, 1000);
-  },
+const refs2 = {
+  startBtn: document.querySelector('button[data-action-start]'),
+  stopBtn: document.querySelector('button[data-action-stop]'),
+  clockface: document.querySelector('.js-clockface'),
 };
 
-timer.start();
+// refs2.startBtn.addEventListener('click', () => {
+//   timer.start();
+// });
 
-function pad(value) {
-  return String(value).padStart(2, '0');
+// const timer = {
+//   intervalId: null,
+//   isActive: false,
+//   start() {
+//     if (this.isActive) {
+//       return;
+//     }
+//     const startTime = Date.now();
+//     this.isActive = true;
+
+//     this.intervalId = setInterval(() => {
+//       const currentTime = Date.now();
+//       const deltaTime = currentTime - startTime;
+//       const { hours, mins, secs } = getTimeComponents(deltaTime);
+//       console.log(`${hours}:${mins}:${secs}`);
+
+//       updateClockface({ hours, mins, secs });
+//     }, 1000);
+//   },
+//   stop() {
+//     clearInterval(this.intervalId);
+//     this.isActive = false;
+//   },
+// };
+
+// refs2.stopBtn.addEventListener('click', () => {
+//   timer.stop();
+// });
+
+// function pad(value) {
+//   return String(value).padStart(2, '0');
+// }
+
+// function getTimeComponents(time) {
+//   const hours = pad(
+//     Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+//   );
+//   const mins = pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
+//   const secs = pad(Math.floor((time % (1000 * 60)) / 1000));
+
+//   return { hours, mins, secs };
+// }
+
+// function updateClockface({ hours, mins, secs }) {
+//   refs2.clockface.textContent = `${hours}:${mins}:${secs}`;
+// }
+
+//
+// переделывание на класс
+// https://youtu.be/x-Hm2lZcOsM?t=7801
+
+class Timer {
+  constructor({ onTick }) {
+    this.intervalId = null;
+    this.isActive = false;
+    this.onTick = onTick;
+    this.init();
+  }
+
+  init() {
+    const time = this.getTimeComponents(0);
+    this.onTick(time);
+  }
+
+  start() {
+    if (this.isActive) {
+      return;
+    }
+    const startTime = Date.now();
+    this.isActive = true;
+
+    this.intervalId = setInterval(() => {
+      const currentTime = Date.now();
+      const deltaTime = currentTime - startTime;
+      const time = this.getTimeComponents(deltaTime);
+
+      this.onTick(time);
+    }, 1000);
+  }
+  stop() {
+    clearInterval(this.intervalId);
+    this.isActive = false;
+    const time = this.getTimeComponents(0);
+    this.onTick(time);
+  }
+
+  getTimeComponents(time) {
+    const hours = this.pad(
+      Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
+    );
+    const mins = this.pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
+    const secs = this.pad(Math.floor((time % (1000 * 60)) / 1000));
+
+    return { hours, mins, secs };
+  }
+
+  pad(value) {
+    return String(value).padStart(2, '0');
+  }
 }
 
-function getTimeComponents(time) {
-  const hours = pad(
-    Math.floor((time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60))
-  );
-  const mins = pad(Math.floor((time % (1000 * 60 * 60)) / (1000 * 60)));
-  const secs = pad(Math.floor((time % (1000 * 60)) / 1000));
+const timer2 = new Timer({
+  onTick: updateClockface,
+});
 
-  return { hours, mins, secs };
+function updateClockface({ hours, mins, secs }) {
+  refs2.clockface.textContent = `${hours}:${mins}:${secs}`;
 }
+
+refs2.startBtn.addEventListener('click', timer2.start.bind(timer2));
+
+refs2.stopBtn.addEventListener('click', timer2.stop.bind(timer2));
+
+///////////////////////////
+
+// Change value of isSuccess variable to call resolve or reject
+const isSuccess = false;
+
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => {
+    if (isSuccess) {
+      resolve('Success! Value passed to resolve function');
+    } else {
+      reject('Error! Error passed to reject function');
+    }
+  }, 2000);
+});
+console.log(promise);
+
+promise
+  .then(value => {
+    console.log(value);
+  })
+  .catch(error => {
+    console.log(error);
+  })
+  .finally(() => console.log('Finnaly result'));
+
+//
+
+const fetchUserFromServer = (username, onSuccess, onError) => {
+  console.log(`Fetching data for ${username}`);
+
+  setTimeout(() => {
+    // Change value of isSuccess variable to simulate request status
+    const isSuccess = true;
+
+    if (isSuccess) {
+      onSuccess('success value');
+    } else {
+      onError('error');
+    }
+  }, 2000);
+};
+
+const onFetchSuccess = user => {
+  console.log(user);
+};
+
+const onFetchError = error => {
+  console.error(error);
+};
+
+fetchUserFromServer('Mango', onFetchSuccess, onFetchError);
+
+//
