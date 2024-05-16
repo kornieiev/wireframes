@@ -195,7 +195,7 @@ function moveZeros(arr) {
   return [...newArr, ...newArr0];
 }
 
-console.log(moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])); // [1, 2, 1, 1, 3, 1, 0, 0, 0, 0];
+// console.log(moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1])); // [1, 2, 1, 1, 3, 1, 0, 0, 0, 0];
 
 // =================================================================
 
@@ -232,7 +232,7 @@ function evenOrOdd(number) {
   return number % 2 === 0 ? "Even" : "Odd";
 }
 
-console.log(evenOrOdd(2)); //'Even'
+// console.log(evenOrOdd(2)); //'Even'
 
 // ============================================================
 
@@ -250,4 +250,40 @@ function solution2(number) {
   return sum;
 }
 
-console.log(solution2(10)); // 3, 5, 6, 9 // 23
+// console.log(solution2(10)); // 3, 5, 6, 9 // 23
+
+// ============================================================
+
+// Vowel Count
+
+function getCount(str) {
+  // let count = 0;
+  // str.split("").map(el => {
+  //   "aeiou".includes(el) ? (count += 1) : count;
+  // });
+  // return count;
+
+  return str
+    .split("")
+    .reduce((acc, cv, i) => ("aeiou".includes(cv) ? acc + 1 : acc), 0);
+}
+
+console.log("result:", getCount("abracadabra")); // 5
+
+// ============================================================
+
+// Disemvowel Trolls
+
+function disemvowel(str) {
+  let string = "";
+  str
+    .split("")
+    .map(e => ("aeiou".includes(e.toLowerCase()) ? string : (string += e)));
+  console.log("string", string);
+}
+
+disemvowel("This website is for losers LOL!");
+// "Ths wbst s fr lsrs LL!")
+// "Ths wbst s fr lsrs LOL!"
+disemvowel("No offense but,\nYour writing is among the worst I've ever read"); // "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd")
+disemvowel("What are you, a communist?"); // "Wht r y,  cmmnst?")
