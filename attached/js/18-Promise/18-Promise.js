@@ -120,19 +120,50 @@
 //
 // Функция, которая возвращает fetch:
 
-const fetchPokemonById = function (id) {
-  return fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-};
+// const fetchPokemonById = function (id) {
+//   return fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+// };
 
-function onFetchSuccess(pokemon) {
-  console.log("onFetchSuccess:", pokemon);
-}
+// function onFetchSuccess(pokemon) {
+//   console.log("onFetchSuccess:", pokemon);
+// }
 
-function onFetchError(error) {
-  console.log("onFetchError:", error);
-}
+// function onFetchError(error) {
+//   console.log("onFetchError:", error);
+// }
 
-fetchPokemonById(2).then(onFetchSuccess).catch(onFetchError);
+// fetchPokemonById(2).then(onFetchSuccess).catch(onFetchError);
 
 // Функция, которая возвращает fetch
 //
+
+////
+////
+
+//
+// Пример: Ипподром:
+// https://youtu.be/DqNRQ0p6m88?t=5180
+
+const horses = [
+  "Secretariat",
+  "Thunderbolt",
+  "Midnight Shadow",
+  "Silver Blaze",
+  "Golden Spirit",
+  "Moonlight Sonata"
+];
+
+console.log(
+  "%c 🏇🏻 Заезд начался, ставки не принимаются",
+  "color: brown; font-size: 14px"
+);
+
+console.log(
+  `%c 🏆 Победил ${1}, финишировав за ${1} времени`,
+  "color: green; font-size: 14px"
+);
+
+console.log(
+  "%c 📋 Заезд окончен, принимаются ставки",
+  "color: blue; font-size: 14px"
+);
