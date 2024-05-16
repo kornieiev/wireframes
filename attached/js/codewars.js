@@ -236,7 +236,7 @@ console.log(evenOrOdd(2)); //'Even'
 
 // ============================================================
 
-function solution(number) {
+function solution2(number) {
   let sum = 0;
 
   if (number < 0) {
@@ -250,4 +250,4 @@ function solution(number) {
   return sum;
 }
 
-console.log(solution(10)); // 3, 5, 6, 9 // 23
+console.log(solution2(10)); // 3, 5, 6, 9 // 23
