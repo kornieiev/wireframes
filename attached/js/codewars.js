@@ -282,8 +282,51 @@ function disemvowel(str) {
   console.log("string", string);
 }
 
-disemvowel("This website is for losers LOL!");
-// "Ths wbst s fr lsrs LL!")
+// disemvowel("This website is for losers LOL!"); // "Ths wbst s fr lsrs LL!")
+// disemvowel("No offense but,\nYour writing is among the worst I've ever read"); // "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd")
+// disemvowel("What are you, a communist?"); // "Wht r y,  cmmnst?")
+
+// ============================================================
+
 // "Ths wbst s fr lsrs LOL!"
-disemvowel("No offense but,\nYour writing is among the worst I've ever read"); // "N ffns bt,\nYr wrtng s mng th wrst 'v vr rd")
-disemvowel("What are you, a communist?"); // "Wht r y,  cmmnst?")
+
+function opposite(number) {
+  if (number === 0) {
+    return number;
+  }
+  return -number;
+}
+
+console.log(opposite(0)); // 0;
+console.log(opposite(4.25)); // -4.25;
+console.log(opposite(3.3333333)); // -3.3333333;
+console.log(opposite(-5)); // 5;
+
+// ============================================================
+
+// Create Phone Number
+
+function createPhoneNumber(numbers) {
+  // const [n1, n2, n3, n4, n5, n6, n7, n8, n9, n10] = numbers;
+  // return `(${n1}${n2}${n3}) ${n4}${n5}${n6}-${n7}${n8}${n9}${n10}`;
+
+  return numbers.join("").replace(/(...)(...)(.*)/, "($1) $2-$3");
+}
+
+console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+
+// ============================================================
+
+// Square Every Digit
+
+function squareDigits(num) {
+  let arr = [];
+  num
+    .toString()
+    .split("")
+    .map(el => arr.push(Math.pow(el, 2)));
+  console.log(arr);
+  return +arr.join("");
+}
+
+console.log(squareDigits(3212)); // 9414
