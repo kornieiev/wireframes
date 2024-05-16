@@ -144,6 +144,50 @@
 // Пример: Ипподром:
 // https://youtu.be/DqNRQ0p6m88?t=5180
 
+const refs = {
+  startBtn: document.querySelector(".js-race"),
+  winnerField: document.querySelector(".js-winner"),
+  progressField: document.querySelector(".js-progress"),
+  tableBody: document.querySelector(".js-result-table >tbody")
+};
+
+console.log("tableBody", refs.tableBody);
+
+refs.startBtn.addEventListener("click", () => {
+  const promises = horses.map(run);
+
+  refs.winnerField.textContent = "";
+
+  refs.progressField.textContent = "🏇🏻 Заезд начался, ставки не принимаются";
+
+  Promise.race(promises).then(({ horse, time }) => {
+    refs.winnerField.textContent = `🏆 Победил ${horse}, финишировав за ${time} времени`;
+
+    updateResultsTable({ horse, time });
+  });
+
+  Promise.all(promises).then(x => {
+    refs.progressField.textContent = "📋 Заезд окончен, принимаются ставки";
+    console.log(
+      "%c 📋 Заезд окончен, принимаются ставки",
+      "color: blue; font-size: 14px"
+    );
+  });
+});
+
+let count = 0;
+
+function updateResultsTable({ horse, time }) {
+  count += 1;
+  const tr = `<tr>
+      <td>${count}</td>
+      <td>${horse}</td>
+      <td>${time}</td>
+    </tr>`;
+
+  refs.tableBody.insertAdjacentHTML("beforeend", tr);
+}
+
 const horses = [
   "Secretariat",
   "Thunderbolt",
@@ -153,17 +197,46 @@ const horses = [
   "Moonlight Sonata"
 ];
 
-console.log(
-  "%c 🏇🏻 Заезд начался, ставки не принимаются",
-  "color: brown; font-size: 14px"
-);
+function run(horse) {
+  return new Promise((resolve, reject) => {
+    const time = getRandomeTime(2000, 4000);
 
-console.log(
-  `%c 🏆 Победил ${1}, финишировав за ${1} времени`,
-  "color: green; font-size: 14px"
-);
+    console.log(
+      "%c 🏇🏻 Заезд начался, ставки не принимаются",
+      "color: brown; font-size: 14px"
+    );
 
-console.log(
-  "%c 📋 Заезд окончен, принимаются ставки",
-  "color: blue; font-size: 14px"
-);
+    setTimeout(() => {
+      resolve({ horse, time });
+      console.log(
+        `%c 🏆 Победил ${horse}, финишировав за ${time} времени`,
+        "color: green; font-size: 14px"
+      );
+    }, time);
+  });
+}
+
+function getRandomeTime(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+// run(horses[1])
+//   .then(x => console.log(x))
+//   .catch(e => console.log(e))
+//   .finally(() => {
+//     console.log(
+//       "%c 📋 Заезд окончен, принимаются ставки",
+//       "color: blue; font-size: 14px"
+//     );
+//   });
+
+const promises = horses.map(run);
+
+Promise.race(promises).then(x => console.log("Promise.race:", x));
+
+Promise.all(promises).then(x => {
+  console.log(
+    "%c 📋 Заезд окончен, принимаются ставки",
+    "color: blue; font-size: 14px"
+  );
+});
