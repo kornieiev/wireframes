@@ -1,0 +1,14 @@
+<div>
+  <div>
+    <img src="{{sprites.front_default}}" alt="{{name}}" />
+  </div>
+  <div>
+    <h2>имя:{{name}}</h2>
+    <p>вес: {{weight}}</p>
+    <ul>
+      {{#each abilities}}
+        <li>{{ability.name}}</li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

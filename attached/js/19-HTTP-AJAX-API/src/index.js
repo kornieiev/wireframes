@@ -1,4 +1,6 @@
-console.log("Hello, Webpack!");
+////
+////
+
 // fetch("https://jsonplaceholder.typicode.com/users/1")
 //   .then(response => {
 //     console.log("response", response);
@@ -18,19 +20,19 @@ console.log("Hello, Webpack!");
 ////
 ////
 
-fetch("https://jsonplaceholder.typicode.com/users")
-  .then(response => {
-    if (!response.ok) {
-      throw new Error(response.status);
-    }
-    return response.json();
-  })
-  .then(data => {
-    // Data handling
-  })
-  .catch(error => {
-    // Error handling
-  });
+// fetch("https://jsonplaceholder.typicode.com/users")
+//   .then(response => {
+//     if (!response.ok) {
+//       throw new Error(response.status);
+//     }
+//     return response.json();
+//   })
+//   .then(data => {
+//     // Data handling
+//   })
+//   .catch(error => {
+//     // Error handling
+//   });
 
 ////
 ////
@@ -72,3 +74,30 @@ fetch("https://jsonplaceholder.typicode.com/users")
 ////
 
 //
+// fetch
+// https://youtu.be/hwLI5XbA140?t=2013
+
+import pokemonCard from "./pokemon-card.hbs";
+
+const pokemonList = document.querySelector(".pokemon-list");
+
+fetch("https://pokeapi.co/api/v2/pokemon/2")
+  .then(res => {
+    if (!res.ok) {
+      throw new Error();
+    }
+
+    console.log("res:", res);
+    return res.json();
+  })
+  .then(pokemon => {
+    console.log("data:", pokemon);
+
+    const markup = pokemonCard(pokemon);
+
+    pokemonList.innerHTML = markup;
+    return pokemon;
+  })
+  .catch(e => {
+    console.log("error:", e);
+  });

@@ -23,6 +23,10 @@ module.exports = {
             presets: ["@babel/preset-env"]
           }
         }
+      },
+      {
+        test: /\.hbs$/,
+        use: "handlebars-loader"
       }
     ]
   }
