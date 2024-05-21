@@ -268,7 +268,7 @@ function getCount(str) {
     .reduce((acc, cv, i) => ("aeiou".includes(cv) ? acc + 1 : acc), 0);
 }
 
-console.log("result:", getCount("abracadabra")); // 5
+// console.log("result:", getCount("abracadabra")); // 5
 
 // ============================================================
 
@@ -297,10 +297,10 @@ function opposite(number) {
   return -number;
 }
 
-console.log(opposite(0)); // 0;
-console.log(opposite(4.25)); // -4.25;
-console.log(opposite(3.3333333)); // -3.3333333;
-console.log(opposite(-5)); // 5;
+// console.log(opposite(0)); // 0;
+// console.log(opposite(4.25)); // -4.25;
+// console.log(opposite(3.3333333)); // -3.3333333;
+// console.log(opposite(-5)); // 5;
 
 // ============================================================
 
@@ -313,7 +313,7 @@ function createPhoneNumber(numbers) {
   return numbers.join("").replace(/(...)(...)(.*)/, "($1) $2-$3");
 }
 
-console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
+// console.log(createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]));
 
 // ============================================================
 
@@ -329,4 +329,43 @@ function squareDigits(num) {
   return +arr.join("");
 }
 
-console.log(squareDigits(3212)); // 9414
+// console.log(squareDigits(3212)); // 9414
+
+// ============================================================
+
+// Find the odd int
+
+function findOdd(A) {
+  const obj = {};
+
+  A.map(a => {
+    let num = a;
+    obj[num] = obj[num] ? obj[num] + 1 : 1;
+  });
+
+  let result = "";
+
+  for (const key in obj) {
+    if (obj[key] % 2 !== 0) {
+      result = key;
+    }
+  }
+  console.log("result", result);
+  return result;
+}
+
+// findOdd([1, 1, 2]); // 2);
+// findOdd([0, 1, 0, 1, 0]); // 0);
+// findOdd([1, 2, 2, 3, 3, 3, 4, 3, 3, 3, 2, 2, 1]); // 4);
+// findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5]); // 5);
+// findOdd([1, 1, 2, -2, 5, 2, 4, 4, -1, -2, 5]); // -1);
+// findOdd([20, 1, 1, 2, 2, 3, 3, 5, 5, 4, 20, 4, 5]); // 5);
+findOdd([20, 1, -1, 2, -2, 3, 3, 5, 5, 1, 2, 4, 20, 4, -1, -2, 5]);
+// findOdd([10]); // 10);
+
+// const newObj = {};
+// console.log("newObj", newObj);
+
+// newObj[1] = 2;
+
+// console.log("newObj", newObj);

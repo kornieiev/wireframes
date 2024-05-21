@@ -1,0 +1,11 @@
+button {
+  padding: 8px 15px;
+  margin: 10px;
+  background-color: lightblue;
+  border: none;
+  border-radius: 5px;
+}
+
+.news-block > .load-more-btn {
+  display: none;
+}

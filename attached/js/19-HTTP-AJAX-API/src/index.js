@@ -37,6 +37,8 @@
 ////
 ////
 
+//
+// Fetch users
 // https://codepen.io/goit-academy/pen/dyvwPbV?editors=1010
 
 // const fetchUsersBtn = document.querySelector(".btn");
@@ -70,34 +72,120 @@
 //   userList.insertAdjacentHTML("beforeend", markup);
 // }
 
+// Fetch users
+//
+
 ////
 ////
 
 //
-// fetch
+// fetch pokemon
 // https://youtu.be/hwLI5XbA140?t=2013
 
 import pokemonCard from "./pokemon-card.hbs";
 
-const pokemonList = document.querySelector(".pokemon-list");
+const refs = {
+  pokemonList: document.querySelector(".pokemon-list"),
+  pokemonForm: document.querySelector(".js-search-form")
+};
 
-fetch("https://pokeapi.co/api/v2/pokemon/2")
-  .then(res => {
-    if (!res.ok) {
+refs.pokemonForm.addEventListener("submit", onSubmit);
+
+function onSubmit(e) {
+  e.preventDefault();
+
+  const form = e.currentTarget;
+
+  const pokemonId = form.elements.query.value;
+
+  fetchPokemonById(pokemonId)
+    .then(makeMarkup)
+    .catch(error => {
+      onFetchError(pokemonId, error);
+    })
+    .finally(() => form.reset());
+}
+
+function fetchPokemonById(id) {
+  return fetch(`https://pokeapi.co/api/v2/pokemon/${id}`).then(response => {
+    if (!response.ok) {
       throw new Error();
     }
 
-    console.log("res:", res);
-    return res.json();
-  })
-  .then(pokemon => {
-    console.log("data:", pokemon);
-
-    const markup = pokemonCard(pokemon);
-
-    pokemonList.innerHTML = markup;
-    return pokemon;
-  })
-  .catch(e => {
-    console.log("error:", e);
+    return response.json();
   });
+}
+
+function makeMarkup(pokemon) {
+  const markup = pokemonCard(pokemon);
+  addMarkupToPage(markup);
+}
+
+function addMarkupToPage(markup) {
+  refs.pokemonList.innerHTML = markup;
+}
+
+function onFetchError(pokemon, error) {
+  console.log("Ошибка: ", error);
+  alert(`${pokemon} не найден!`);
+}
+
+//
+//
+
+////
+////
+
+//
+//
+
+import "./css/common.css";
+
+import NewsApi from "./components/Api/newsApi";
+import makeNewsMarkup from "./components/markupMaker/makeNewsMarkup";
+
+const inputNews = document.querySelector(".input-news");
+const loadNewsBtn = document.querySelector(".news-btn");
+const newsList = document.querySelector(".news-list");
+const loadMoreBtn = document.querySelector(".load-more-btn");
+
+const newsApi = new NewsApi();
+
+inputNews.addEventListener("input", onInputChange);
+loadNewsBtn.addEventListener("click", onLoadNews);
+loadMoreBtn.addEventListener("click", onLoadMore);
+
+let searchQuery = "";
+
+function onInputChange(e) {
+  searchQuery = e.currentTarget.value;
+}
+
+function onLoadNews() {
+  if (!searchQuery) {
+    return;
+  }
+  newsApi.query = searchQuery;
+  newsApi.fetchNews().then(data => {
+    console.log("🚀 ~ newsApi.fetchNews ~ data:", data);
+    clearArticlesContainer();
+
+    addNewsToPage(data);
+  });
+}
+
+function onLoadMore() {
+  newsApi.fetchNews().then(data => {
+    addNewsToPage(data);
+  });
+}
+
+function addNewsToPage(data) {
+  newsList.insertAdjacentHTML("beforeend", makeNewsMarkup(data));
+}
+
+function clearArticlesContainer() {
+  newsList.innerHTML = "";
+}
+
+console.log(" string string ".trim());
