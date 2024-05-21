@@ -188,4 +188,67 @@ function clearArticlesContainer() {
   newsList.innerHTML = "";
 }
 
-console.log(" string string ".trim());
+//
+//
+
+////
+////
+
+//
+//
+
+function addData(data) {
+  const options = {
+    method: "PATCH",
+    body: JSON.stringify(data),
+    headers: {
+      "Content-Type": "application/json; charset=UTF-8"
+    }
+  };
+
+  return fetch("https://jsonplaceholder.typicode.com/posts", options).then(
+    response => response.json()
+  );
+}
+
+addData({
+  author: "Mango",
+  body: "CRUD is awesome"
+})
+  .then(renderBook)
+  .catch(error => console.log(error));
+
+function renderBook(post) {
+  console.log("Пришел ответ от бекенда. Можно рисовать");
+  console.log("poST:", post);
+}
+
+////
+
+// const postToUpdate = {
+//   id: 1,
+//   body: "CRUD is RRRRRRRRRRRReally awesome"
+// };
+
+// const options2 = {
+//   method: "PATCH",
+//   body: JSON.stringify(postToUpdate),
+//   headers: {
+//     "Content-Type": "application/json; charset=UTF-8"
+//   }
+// };
+
+// fetch(`https://jsonplaceholder.typicode.com/posts/${postToUpdate.id}`, options2)
+//   .then(response => response.json())
+//   .then(patch => console.log("patCH:", patch))
+//   .catch(error => console.log(error));
+
+// ////
+
+// const postIdToDelete = 1;
+
+// fetch(`https://jsonplaceholder.typicode.com/posts/${postIdToDelete}`, {
+//   method: "DELETE"
+// })
+//   .then(() => console.log("Post deleted"))
+//   .catch(error => console.log("Error:", error));
