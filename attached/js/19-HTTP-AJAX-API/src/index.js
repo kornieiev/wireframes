@@ -253,3 +253,20 @@ function renderBook(post) {
 // })
 //   .then(() => console.log("Post deleted"))
 //   .catch(error => console.log("Error:", error));
+
+const fetchUsers = async () => {
+  const baseUrl = "https://jsonplaceholder.typicode.com";
+  const userIds = [1, 2, 3];
+
+  // 1. Створюємо масив промісів
+  const arrayOfPromises = userIds.map(async userId => {
+    const response = await fetch(`${baseUrl}/users/${userId}`);
+    return response.json();
+  });
+
+  // 2. Запускаємо усі проміси паралельно і чекаємо на їх завершення
+  const users = await Promise.all(arrayOfPromises);
+  console.log(users);
+};
+
+fetchUsers();
